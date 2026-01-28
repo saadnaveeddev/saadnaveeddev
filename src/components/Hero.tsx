@@ -11,7 +11,7 @@ const Hero = () => {
       <div className="absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-gradient-to-b from-secondary/50 to-background" />
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-accent/3 rounded-full blur-3xl" />
       </div>
 
       <div className="section-container text-center">
@@ -50,7 +50,7 @@ const Hero = () => {
         {/* Scroll indicator */}
         <div className="absolute bottom-12 left-1/2 -translate-x-1/2 animate-fade-up-delay-3">
           <div className="w-6 h-10 rounded-full border-2 border-border flex items-start justify-center p-2">
-            <div className="w-1 h-2 bg-muted-foreground rounded-full animate-pulse" />
+            <div className="w-1 h-2 bg-accent rounded-full animate-pulse" />
           </div>
         </div>
       </div>

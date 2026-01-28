@@ -61,7 +61,7 @@ const Services = () => {
           {services.map((service, index) => (
             <div
               key={service.title}
-              className={`card-premium group transition-all duration-500 ${
+              className={`card-glow group transition-all duration-500 ${
                 isVisible 
                   ? 'opacity-100 translate-y-0' 
                   : 'opacity-0 translate-y-8'
