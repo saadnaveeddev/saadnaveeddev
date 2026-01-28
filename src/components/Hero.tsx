@@ -7,11 +7,19 @@ const Hero = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Subtle background pattern */}
+      {/* Background is now global - overlay for hero text prominence */}
+
+      {/* Enhanced overlay for text prominence */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-b from-secondary/50 to-background" />
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-accent/3 rounded-full blur-3xl" />
+        {/* Gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/30 to-background/60" />
+
+        {/* Radial spotlight on center content */}
+        <div className="absolute inset-0"
+          style={{
+            background: 'radial-gradient(ellipse 800px 600px at center, transparent 0%, rgba(10, 10, 10, 0.4) 100%)'
+          }}
+        />
       </div>
 
       <div className="section-container text-center">

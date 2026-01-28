@@ -62,7 +62,7 @@ const Testimonials = () => {
   }, []);
 
   return (
-    <section id="testimonials" ref={sectionRef} className="bg-card">
+    <section id="testimonials" ref={sectionRef}>
       <div className="section-container">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="section-title">Testimonials</span>
@@ -77,25 +77,24 @@ const Testimonials = () => {
           {testimonials.map((testimonial, index) => (
             <div
               key={testimonial.name}
-              className={`group relative bg-background rounded-xl p-6 border border-border/50 transition-all duration-500 hover:border-accent/30 hover:-translate-y-1 ${
-                isVisible 
-                  ? 'opacity-100 translate-y-0' 
-                  : 'opacity-0 translate-y-8'
-              }`}
-              style={{ 
-                transitionDelay: `${index * 100}ms`,
+              className={`group relative bg-background rounded-xl p-6 border border-border/50 transition-all duration-600 ease-out hover:border-accent/30 hover:-translate-y-1 ${isVisible
+                  ? 'opacity-100 translate-y-0'
+                  : 'opacity-0 translate-y-12'
+                }`}
+              style={{
+                transitionDelay: `${index * 120}ms`,
                 boxShadow: 'var(--shadow-card)'
               }}
             >
               {/* Quote icon */}
               <Quote className="w-8 h-8 text-accent/30 mb-4" strokeWidth={1} />
-              
+
               {/* Rating stars */}
               <div className="flex gap-1 mb-4">
                 {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star 
-                    key={i} 
-                    className="w-4 h-4 text-accent fill-accent" 
+                  <Star
+                    key={i}
+                    className="w-4 h-4 text-accent fill-accent"
                   />
                 ))}
               </div>
@@ -122,8 +121,8 @@ const Testimonials = () => {
               </div>
 
               {/* Subtle hover glow */}
-              <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" 
-                   style={{ boxShadow: 'var(--glow-accent)' }} 
+              <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                style={{ boxShadow: 'var(--glow-accent)' }}
               />
             </div>
           ))}
