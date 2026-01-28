@@ -22,11 +22,11 @@ const About = () => {
   }, []);
 
   return (
-    <section id="about" ref={sectionRef} className="bg-secondary/30">
+    <section id="about" ref={sectionRef}>
       <div className="section-container">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Text content */}
-          <div className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          <div className={`transition-all duration-600 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
             <span className="section-title">About Me</span>
             <h2 className="section-heading">
               Crafting Digital
@@ -35,11 +35,11 @@ const About = () => {
             </h2>
             <div className="space-y-4 text-muted-foreground text-lg leading-relaxed">
               <p>
-                I'm a full-stack developer specializing in modern web applications using the MERN stack. 
+                I'm a full-stack developer specializing in modern web applications using the MERN stack.
                 I focus on clean architecture, performance, and scalable solutions that help products grow.
               </p>
               <p>
-                I enjoy turning complex ideas into simple, reliable digital experiences. Every line of code 
+                I enjoy turning complex ideas into simple, reliable digital experiences. Every line of code
                 I write is purposeful—built to last and easy to maintain.
               </p>
             </div>
@@ -62,7 +62,7 @@ const About = () => {
           </div>
 
           {/* Abstract illustration */}
-          <div className={`relative transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          <div className={`relative transition-all duration-600 ease-out delay-[240ms] ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
             <div className="relative aspect-square max-w-md mx-auto">
               {/* Abstract shapes */}
               <div className="absolute inset-0 flex items-center justify-center">

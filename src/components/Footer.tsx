@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className="bg-background border-t border-border">
+    <footer className="border-t border-border">
       <div className="section-container py-12">
         <div className="text-center">
           <p className="text-muted-foreground">

@@ -105,7 +105,7 @@ const Portfolio = () => {
 
   return (
     <>
-      <section id="portfolio" ref={sectionRef} className="bg-secondary/30">
+      <section id="portfolio" ref={sectionRef}>
         <div className="section-container">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <span className="section-title">Selected Work</span>
@@ -121,34 +121,33 @@ const Portfolio = () => {
               <div
                 key={project.title}
                 onClick={() => setSelectedProject(project)}
-                className={`group card-glow p-0 overflow-hidden cursor-pointer transition-all duration-500 ${
-                  isVisible 
-                    ? 'opacity-100 translate-y-0' 
-                    : 'opacity-0 translate-y-8'
-                }`}
-                style={{ transitionDelay: `${index * 100}ms` }}
+                className={`group card-glow p-0 overflow-hidden cursor-pointer transition-all duration-600 ease-out ${isVisible
+                  ? 'opacity-100 translate-y-0'
+                  : 'opacity-0 translate-y-12'
+                  }`}
+                style={{ transitionDelay: `${index * 120}ms` }}
               >
-                {/* Image */}
+                {/* Project image */}
                 <div className="relative overflow-hidden aspect-[4/3]">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out flex items-end p-4">
                     <span className="text-foreground text-sm font-medium">View Project →</span>
                   </div>
                 </div>
 
-                {/* Content */}
+                {/* Project info */}
                 <div className="p-6">
-                  <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-accent transition-colors">
+                  <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-accent transition-colors duration-300 ease-out">
                     {project.title}
                   </h3>
                   <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
                     {project.description}
                   </p>
-                  
+
                   {/* Tags */}
                   <div className="flex flex-wrap gap-2">
                     {project.tags.slice(0, 3).map((tag) => (
@@ -167,7 +166,7 @@ const Portfolio = () => {
         </div>
       </section>
 
-      <ProjectModal 
+      <ProjectModal
         project={selectedProject}
         isOpen={selectedProject !== null}
         onClose={() => setSelectedProject(null)}

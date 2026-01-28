@@ -46,7 +46,7 @@ const Services = () => {
   }, []);
 
   return (
-    <section id="services" ref={sectionRef} className="bg-background">
+    <section id="services" ref={sectionRef}>
       <div className="section-container">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="section-title">What I Do</span>
@@ -61,14 +61,13 @@ const Services = () => {
           {services.map((service, index) => (
             <div
               key={service.title}
-              className={`card-glow group transition-all duration-500 ${
-                isVisible 
-                  ? 'opacity-100 translate-y-0' 
-                  : 'opacity-0 translate-y-8'
-              }`}
-              style={{ transitionDelay: `${index * 100}ms` }}
+              className={`card-glow group transition-all duration-600 ease-out ${isVisible
+                  ? 'opacity-100 translate-y-0'
+                  : 'opacity-0 translate-y-12'
+                }`}
+              style={{ transitionDelay: `${index * 120}ms` }}
             >
-              <div className="icon-box mb-5 transition-transform duration-300 group-hover:scale-110">
+              <div className="icon-box mb-5 transition-transform duration-300 ease-out group-hover:scale-110">
                 <service.icon className="w-6 h-6" strokeWidth={1.5} />
               </div>
               <h3 className="text-xl font-semibold text-foreground mb-3">
