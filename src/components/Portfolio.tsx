@@ -3,6 +3,58 @@ import ProjectModal, { Project } from "./ProjectModal";
 
 const projects: Project[] = [
   {
+    title: "Hijazi Tailoring",
+    description: "Premium tailoring showcase with booking and measurement features.",
+    fullDescription: "Hijazi Tailoring is a sleek, modern web presence built to showcase a premium tailoring shop in Al Khobar. The site highlights core services like bespoke suits, alterations, formal wear, and traditional garments. With a clean, responsive design, visitors can explore galleries, view pricing, book fittings, and access measurement guides. The site emphasizes craftsmanship, punctual delivery, and customer-centric service. Built with modern web tech, it serves both as a branding tool and a lead-generation platform.",
+    image: "/images/hijazi-main.png",
+    gallery: [
+      "/images/hijazi-main.png",
+      "/images/hijazi-services.png",
+      "/images/hijazi-booking.png",
+    ],
+    tags: ["Next.js", "React", "Tailwind CSS", "Vercel"],
+    liveUrl: "https://nextjs-tailor-shop.vercel.app/en",
+  },
+  {
+    title: "PowerLand House",
+    description: "Industrial power solutions platform with location services and product catalog.",
+    fullDescription: "A modern web platform for PowerLand House, an industrial electrical engineering company. The solution established their digital identity, featuring accurate location pinning to solve accessibility issues and a comprehensive service showcase for transformers, generators, and motors. The platform helped drive a 36% increase in client acquisition.",
+    image: "/images/powerland-hero.png",
+    gallery: [
+      "/images/powerland-hero.png",
+      "/images/powerland-services.png",
+      "/images/powerland-location.png",
+    ],
+    tags: ["React", "Vite", "Google Maps API", "Tailwind CSS"],
+    liveUrl: "https://powerland-house.lovable.app/",
+  },
+  {
+    title: "PDF-Vision",
+    description: "Intelligent PDF workspace for editing, signing, and collaboration.",
+    fullDescription: "A professional PDF platform redefining document workflows. PDF-Vision helps teams centralize editing, signing, and collaboration on high-stakes documents. Featuring 20+ purpose-built tools including OCR, Redaction, and AI-powered Chat with PDF. Trusted by over 1M+ active users to process millions of documents with enterprise-grade security.",
+    image: "/images/pdf-vision-hero.png",
+    gallery: [
+      "/images/pdf-vision-hero.png",
+      "/images/pdf-vision-editor.png",
+      "/images/pdf-vision-tools.png",
+    ],
+    tags: ["Next.js", "React", "TypeScript", "AI Integration"],
+    liveUrl: "https://pdf-vision.com/",
+  },
+  {
+    title: "CAELUM WEAR",
+    description: "Premium leather biker jacket e-commerce store with custom sizing.",
+    fullDescription: "CAELUM WEAR International is a premium e-commerce brand specializing in handcrafted leather biker jackets. The platform showcases a 'Legendary Style' with a focus on master craftsmanship and 100% genuine leather. Features include a comprehensive collection view (Biker, Classic, Winter), a 'Custom Fit' bespoke ordering system, and a seamless shopping experience for global customers.",
+    image: "/images/caelum-hero.png",
+    gallery: [
+      "/images/caelum-hero.png",
+      "/images/caelum-collection.png",
+      "/images/caelum-custom.png",
+    ],
+    tags: ["React", "Tailwind CSS", "Framer Motion", "Supabase"],
+    liveUrl: "https://caelumwear-international.lovable.app/",
+  },
+  {
     title: "E-Commerce Platform",
     description: "Full-featured online store with payment integration and inventory management.",
     fullDescription: "A comprehensive e-commerce solution built for a growing retail brand. Features include real-time inventory tracking, Stripe payment integration, order management dashboard, and a mobile-responsive storefront. The platform handles thousands of daily transactions with 99.9% uptime.",
@@ -13,7 +65,6 @@ const projects: Project[] = [
       "https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=1200&h=800&fit=crop&auto=format",
     ],
     tags: ["React", "Node.js", "MongoDB", "Stripe", "Redis"],
-    liveUrl: "https://example.com",
   },
   {
     title: "AI Analytics Dashboard",
@@ -26,7 +77,6 @@ const projects: Project[] = [
       "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=1200&h=800&fit=crop&auto=format",
     ],
     tags: ["Next.js", "Python", "TensorFlow", "D3.js", "PostgreSQL"],
-    liveUrl: "https://example.com",
   },
   {
     title: "SaaS Management Tool",
@@ -39,7 +89,6 @@ const projects: Project[] = [
       "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1200&h=800&fit=crop&auto=format",
     ],
     tags: ["React", "Express", "PostgreSQL", "Redis", "WebSocket"],
-    liveUrl: "https://example.com",
   },
   {
     title: "Healthcare Portal",
@@ -54,17 +103,17 @@ const projects: Project[] = [
     tags: ["React", "Node.js", "MongoDB", "AWS", "Twilio"],
   },
   {
-    title: "Fintech Mobile App",
+    title: "Fintech Web App",
     description: "Investment tracking and portfolio management application.",
-    fullDescription: "A sleek mobile-first investment platform that helps users track their portfolios, analyze market trends, and make informed investment decisions. Features real-time price updates, personalized insights, and secure banking integrations.",
+    fullDescription: "A sleek web-based investment platform that helps users track their portfolios, analyze market trends, and make informed investment decisions. Features real-time price updates, personalized insights, and secure banking integrations.",
     image: "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?w=600&h=400&fit=crop&auto=format",
     gallery: [
       "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?w=1200&h=800&fit=crop&auto=format",
       "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200&h=800&fit=crop&auto=format",
       "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=1200&h=800&fit=crop&auto=format",
     ],
-    tags: ["React Native", "Node.js", "GraphQL", "Plaid API"],
-    liveUrl: "https://example.com",
+    tags: ["Next.js", "Nest.js", "GraphQL", "Plaid API"],
+    liveUrl: "https://app.unitekhub.com/login",
   },
   {
     title: "Real Estate Platform",
@@ -77,7 +126,7 @@ const projects: Project[] = [
       "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&h=800&fit=crop&auto=format",
     ],
     tags: ["Next.js", "Prisma", "PostgreSQL", "Mapbox", "Three.js"],
-    liveUrl: "https://example.com",
+    liveUrl: "https://affordablerenders.com/",
   },
 ];
 
@@ -137,7 +186,7 @@ const Portfolio = () => {
                     className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out flex items-end p-4" aria-hidden="true">
-                    <span className="text-foreground text-sm font-medium">View Project →</span>
+                    <span className="text-foreground text-sm font-medium">View Details →</span>
                   </div>
                 </div>
 
@@ -164,6 +213,43 @@ const Portfolio = () => {
                 </div>
               </article>
             ))}
+
+            {/* Find More Card */}
+            <a
+              href="https://github.com/saadnaveeddev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`group card-glow p-6 flex flex-col items-center justify-center text-center gap-4 cursor-pointer transition-all duration-600 ease-out min-h-[300px] hover:border-accent/50 ${isVisible
+                ? 'opacity-100 translate-y-0'
+                : 'opacity-0 translate-y-12'
+                }`}
+              style={{ transitionDelay: `${projects.length * 120}ms` }}
+            >
+              <div className="w-16 h-16 rounded-full bg-secondary flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="w-8 h-8 text-foreground group-hover:text-accent transition-colors"
+                >
+                  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                </svg>
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold text-foreground mb-2 group-hover:text-accent transition-colors">
+                  View More Projects
+                </h3>
+                <p className="text-muted-foreground text-sm">
+                  Explore my open source work and contributions on GitHub.
+                </p>
+              </div>
+              <span className="text-accent text-sm font-medium group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
+                Visit GitHub →
+              </span>
+            </a>
           </div>
         </div>
       </section>
