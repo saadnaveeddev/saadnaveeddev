@@ -4,7 +4,7 @@ import { Quote, Star } from "lucide-react";
 const testimonials = [
   {
     text: "Saad delivered exactly what we needed—a fast, scalable platform that our users love. His attention to detail and technical expertise exceeded our expectations.",
-    name: "Michael Chen",
+    name: "Aleksandar Stojanovic",
     role: "Startup Founder",
     rating: 5,
   },
@@ -16,8 +16,8 @@ const testimonials = [
   },
   {
     text: "Exceptional problem-solver with deep full-stack knowledge. Saad took our complex requirements and built a clean, maintainable codebase that just works.",
-    name: "David Park",
-    role: "Product Manager",
+    name: "Sobia Khan",
+    role: "Professor at UOL",
     rating: 5,
   },
   {
@@ -28,13 +28,13 @@ const testimonials = [
   },
   {
     text: "The best developer I've worked with on Upwork. Professional communication, on-time delivery, and code quality that speaks for itself.",
-    name: "James Mitchell",
+    name: "Memoona Jabbar",
     role: "Agency Owner",
     rating: 5,
   },
   {
     text: "Saad has a rare combination of technical skill and business understanding. He doesn't just code—he builds solutions that drive real value.",
-    name: "Lisa Thompson",
+    name: "Nick Carter",
     role: "SaaS Founder",
     rating: 5,
   },
@@ -78,8 +78,8 @@ const Testimonials = () => {
             <div
               key={testimonial.name}
               className={`group relative bg-background rounded-xl p-6 border border-border/50 transition-all duration-600 ease-out hover:border-accent/30 hover:-translate-y-1 ${isVisible
-                  ? 'opacity-100 translate-y-0'
-                  : 'opacity-0 translate-y-12'
+                ? 'opacity-100 translate-y-0'
+                : 'opacity-0 translate-y-12'
                 }`}
               style={{
                 transitionDelay: `${index * 120}ms`,
