@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import ProjectModal, { Project } from "./ProjectModal";
 
-const projects: Project[] = [
+const webProjects: Project[] = [
   {
     title: "Hijazi Tailoring",
     description: "Premium tailoring showcase with booking and measurement features.",
@@ -76,12 +76,12 @@ const projects: Project[] = [
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=800&fit=crop&auto=format",
       "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=1200&h=800&fit=crop&auto=format",
     ],
-    tags: ["Next.js", "Python", "TensorFlow", "D3.js", "PostgreSQL"],
+    tags: ["Next.js", "Python", "TensorFlow", "D3.js", "Flask"],
   },
   {
     title: "SaaS Management Tool",
     description: "Multi-tenant application for team collaboration and project tracking.",
-    fullDescription: "A powerful project management SaaS built for modern teams. Features include real-time collaboration, Kanban boards, time tracking, team permissions, and integrations with popular tools like Slack and GitHub. Scales from small teams to enterprise organizations.",
+    fullDescription: "A powerful project management aaS built for modern teams. Features include real-time collaboration, Kanban boards, time tracking, team permissions, and integrations with popular tools like Slack and GitHub. Scales from small teams to enterprise organizations.",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop&auto=format",
     gallery: [
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=800&fit=crop&auto=format",
@@ -130,6 +130,21 @@ const projects: Project[] = [
   },
 ];
 
+const aiProjects: Project[] = [
+  {
+    title: "AI Analytics Dashboard",
+    description: "Real-time data visualization platform with predictive insights.",
+    fullDescription: "An intelligent analytics platform that transforms raw data into actionable insights. Powered by machine learning models for predictive analysis, real-time data streaming, and interactive D3.js visualizations. Helps businesses make data-driven decisions faster.",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop&auto=format",
+    gallery: [
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=800&fit=crop&auto=format",
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=800&fit=crop&auto=format",
+      "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=1200&h=800&fit=crop&auto=format",
+    ],
+    tags: ["Next.js", "Python", "TensorFlow", "D3.js", "Flask"],
+  },
+];
+
 const Portfolio = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -152,6 +167,83 @@ const Portfolio = () => {
 
     return () => observer.disconnect();
   }, []);
+
+  const GithubCard = () => (
+    <a
+      href="https://github.com/saadnaveeddev"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group card-glow p-6 flex flex-col items-center justify-center text-center gap-4 cursor-pointer transition-all duration-300 ease-out min-h-[300px] hover:border-accent/50"
+    >
+      <div className="w-16 h-16 rounded-full bg-secondary flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="w-8 h-8 text-foreground group-hover:text-accent transition-colors"
+        >
+          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+        </svg>
+      </div>
+      <div>
+        <h3 className="text-xl font-semibold text-foreground mb-2 group-hover:text-accent transition-colors">
+          View More Projects
+        </h3>
+        <p className="text-muted-foreground text-sm">
+          Explore my open source work and contributions on GitHub.
+        </p>
+      </div>
+      <span className="text-accent text-sm font-medium group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
+        Visit GitHub →
+      </span>
+    </a>
+  );
+
+  const ProjectCard = ({ project, index }: { project: Project; index: number }) => (
+    <article
+      onClick={() => setSelectedProject(project)}
+      className="group card-glow p-0 overflow-hidden cursor-pointer transition-all duration-300 ease-out hover:translate-y-[-4px]"
+      aria-label={`${project.title} - Click to view details`}
+    >
+      {/* Project image */}
+      <div className="relative overflow-hidden aspect-[4/3]">
+        <img
+          src={project.image}
+          alt={`${project.title} - ${project.description}`}
+          loading={index < 3 ? "eager" : "lazy"}
+          className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out flex items-end p-4" aria-hidden="true">
+          <span className="text-foreground text-sm font-medium">View Details →</span>
+        </div>
+      </div>
+
+      {/* Project info */}
+      <div className="p-6">
+        <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-accent transition-colors duration-300 ease-out">
+          {project.title}
+        </h3>
+        <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
+          {project.description}
+        </p>
+
+        {/* Tags */}
+        <div className="flex flex-wrap gap-2" role="list" aria-label="Technologies used">
+          {project.tags.slice(0, 3).map((tag) => (
+            <span key={tag} className="tech-tag" role="listitem">
+              {tag}
+            </span>
+          ))}
+          {project.tags.length > 3 && (
+            <span className="tech-tag" role="listitem">+{project.tags.length - 3}</span>
+          )}
+        </div>
+      </div>
+    </article>
+  );
 
   return (
     <>
@@ -270,113 +362,17 @@ const Portfolio = () => {
 
               {category === 'web' ? (
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-                  {projects.map((project, index) => (
-                    <article
-                      key={project.title}
-                      onClick={() => setSelectedProject(project)}
-                      className="group card-glow p-0 overflow-hidden cursor-pointer transition-all duration-300 ease-out hover:translate-y-[-4px]"
-                      aria-label={`${project.title} - Click to view details`}
-                    >
-                      {/* Project image */}
-                      <div className="relative overflow-hidden aspect-[4/3]">
-                        <img
-                          src={project.image}
-                          alt={`${project.title} - ${project.description}`}
-                          loading={index < 3 ? "eager" : "lazy"}
-                          className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out flex items-end p-4" aria-hidden="true">
-                          <span className="text-foreground text-sm font-medium">View Details →</span>
-                        </div>
-                      </div>
-
-                      {/* Project info */}
-                      <div className="p-6">
-                        <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-accent transition-colors duration-300 ease-out">
-                          {project.title}
-                        </h3>
-                        <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
-                          {project.description}
-                        </p>
-
-                        {/* Tags */}
-                        <div className="flex flex-wrap gap-2" role="list" aria-label="Technologies used">
-                          {project.tags.slice(0, 3).map((tag) => (
-                            <span key={tag} className="tech-tag" role="listitem">
-                              {tag}
-                            </span>
-                          ))}
-                          {project.tags.length > 3 && (
-                            <span className="tech-tag" role="listitem">+{project.tags.length - 3}</span>
-                          )}
-                        </div>
-                      </div>
-                    </article>
+                  {webProjects.map((project, index) => (
+                    <ProjectCard key={project.title} project={project} index={index} />
                   ))}
-
-                  {/* Find More Card */}
-                  <a
-                    href="https://github.com/saadnaveeddev"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group card-glow p-6 flex flex-col items-center justify-center text-center gap-4 cursor-pointer transition-all duration-300 ease-out min-h-[300px] hover:border-accent/50"
-                  >
-                    <div className="w-16 h-16 rounded-full bg-secondary flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <svg
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="w-8 h-8 text-foreground group-hover:text-accent transition-colors"
-                      >
-                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
-                      </svg>
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-semibold text-foreground mb-2 group-hover:text-accent transition-colors">
-                        View More Projects
-                      </h3>
-                      <p className="text-muted-foreground text-sm">
-                        Explore my open source work and contributions on GitHub.
-                      </p>
-                    </div>
-                    <span className="text-accent text-sm font-medium group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
-                      Visit GitHub →
-                    </span>
-                  </a>
+                  <GithubCard />
                 </div>
               ) : (
-                <div className="flex flex-col items-center justify-center min-h-[400px] text-center p-8 card-glow rounded-2xl">
-                  <div className="w-20 h-20 rounded-full bg-secondary flex items-center justify-center mb-6">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="40"
-                      height="40"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="text-muted-foreground"
-                    >
-                      <path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" />
-                      <path d="M5 6.13a9 9 0 0 1 1.74-2.5 9 9 0 0 1 2.5-1.74" />
-                      <path d="M16.5 3.37a9 9 0 0 1 2.5 1.74 9 9 0 0 1 1.74 2.5" />
-                      <path d="M19 17.87a9 9 0 0 1-1.74 2.5 9 9 0 0 1-2.5 1.74" />
-                      <path d="M7.5 20.63a9 9 0 0 1-2.5-1.74 9 9 0 0 1-1.74-2.5" />
-                      <path d="M12 2v2" />
-                      <path d="M12 20v2" />
-                      <path d="M2 12h2" />
-                      <path d="M20 12h2" />
-                    </svg>
-                  </div>
-                  <h3 className="text-2xl font-bold text-foreground mb-4">Coming Soon</h3>
-                  <p className="text-muted-foreground max-w-md">
-                    I'm currently working on some exciting AI projects. Check back soon for updates!
-                  </p>
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                  {aiProjects.map((project, index) => (
+                    <ProjectCard key={project.title} project={project} index={index} />
+                  ))}
+                  <GithubCard />
                 </div>
               )}
             </div>
