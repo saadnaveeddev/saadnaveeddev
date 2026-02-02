@@ -16,8 +16,8 @@ const testimonials = [
   },
   {
     text: "Exceptional problem-solver with deep full-stack knowledge. Saad took our complex requirements and built a clean, maintainable codebase that just works.",
-    name: "Sobia Khan",
-    role: "Professor at UOL",
+    name: "Stephane Happi",
+    role: "CEO at Code-Vision",
     rating: 5,
   },
   {
