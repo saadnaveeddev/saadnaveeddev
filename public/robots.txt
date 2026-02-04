@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://saadnaveed.dev/sitemap.xml
+Sitemap: https://saadnaveeddev.lovable.app/sitemap.xml
