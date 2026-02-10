@@ -36,6 +36,17 @@ If your app is slow, messy, or stuck, I am the person you call.
 
 ## ⚙️ Tech Stack
 
+![React](https://img.shields.io/badge/React-20232A?logo=react)
+![Next.js](https://img.shields.io/badge/Next.js-000000?logo=nextdotjs)
+![Node.js](https://img.shields.io/badge/Node.js-339933?logo=node.js)
+![MongoDB](https://img.shields.io/badge/MongoDB-47A248?logo=mongodb)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?logo=postgresql)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript)
+![Python](https://img.shields.io/badge/Python-3776AB?logo=python)
+![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker)
+![AWS](https://img.shields.io/badge/AWS-232F3E?logo=amazonaws)
+
+
 ### Frontend
 React • Next.js • TypeScript • Tailwind CSS • HTML5 • CSS3 • Zustand • Redux • React Query
 
