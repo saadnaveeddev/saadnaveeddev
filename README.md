@@ -1,15 +1,9 @@
+<h1 align="center">Hi, I am Saad 👋</h1>
+
 <p align="center">
   <img src="https://readme-typing-svg.demolab.com?lines=Full+Stack+Developer;AI+Engineer;MERN+Specialist;I+fix+broken+apps+and+scale+them&center=true&width=600&height=45" />
 </p>
 
-
-<p align="center">
-Full Stack Developer • AI Engineer • MERN Specialist • Production Fixer
-</p>
-
-<p align="center">
-I turn complex ideas into scalable, production-ready web and AI products.
-</p>
 
 ---
 
