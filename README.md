@@ -1,84 +1,124 @@
-# saadnaveeddev-about
-saadnaveeddev | Saad Naveed | Full Stack Developer | AI Engineer | React | Node.js
+<h1 align="center">Hi, I am Saad 👋</h1>
 
+<p align="center">
+Full Stack Developer • AI Engineer • MERN Specialist • Production Fixer
+</p>
 
-# Hi, I am Saad Naveed 👋
-**Full Stack Developer | AI Engineer | MERN & GenAI Specialist**  
-
----
-
-## 📍 Location
-Gujranwala, Punjab, Pakistan  
-
-## 📞 Contact
-- **Mobile:** 0339-2625002  
-- **Email:** [saad.naveed.dev@gmail.com](mailto:saad.naveed.dev@gmail.com)  
-- **LinkedIn:** [linkedin.com/in/saadnaveeddev](https://www.linkedin.com/in/saadnaveeddev)  
-- **Portfolio / Personal Projects:** [saadnaveeddev.lovable.app](https://saadnaveeddev.lovable.app)  
+<p align="center">
+I turn complex ideas into scalable, production-ready web and AI products.
+</p>
 
 ---
 
-## 💡 About Me
-I am a Full-Stack Developer who loves turning complex ideas into **smart, scalable products**. With **5+ years experience** across the MERN stack and Generative AI tools like **LangChain** and **OpenAI**, I build everything from **modern web apps** to **custom GPT-powered assistants**.  
+## 🚀 About Me
 
-I focus on delivering **clean, production-ready code** with value-first approach—whether it’s a **chatbot** understanding your business or a **real-time dashboard** for decision-making.  
+I am a Full Stack Developer and AI Engineer with 5+ years of experience building, debugging, refactoring, and scaling real-world applications.
 
----
+I specialize in:
 
-## 🛠 Skills
+- Fixing broken architectures
+- Turning slow apps into fast systems
+- Building AI powered products with clean backend foundations
+- Shipping MVPs that are ready for real users
+- Maintaining and optimizing production systems
 
-### Languages & Databases
-- JavaScript, SQL  
-- MongoDB, PostgreSQL  
-
-### Frontend & Backend
-- React, Next.js, Node.js  
-- Tailwind CSS  
-
-### Cloud & DevOps
-- AWS (Lambda, S3, API Gateway)  
-- Docker, Serverless, CI/CD pipelines  
-
-### AI & Tools
-- LangChain, OpenAI  
-- Pinecone, ChromaDB  
-
-### Other
-- Clean architecture, performance optimization, production-ready apps  
+If your app is slow, messy, or stuck, I am the person you call.
 
 ---
 
-## 🏆 Experience
+## 🧠 What I Actually Do
 
-**PGE - Pangea Global Enterprises**  
-- Technical Department Lead | Apr 2025 – Sep 2025  
-- AI Engineer | Jan 2025 – Sep 2025  
-
-**KAZ Technologies (IT Consultancy & Services)**  
-- Data Analyst | Nov 2023 – Oct 2024  
-
-**PMS Solutions Limited**  
-- AI/ML Engineer | Sep 2022 – Sep 2023  
-- Oracle Database Developer | Jun 2022 – Aug 2022  
+- Debug and refactor large codebases
+- Build scalable MERN and Next.js applications
+- Design clean backend architectures
+- Integrate AI, LLMs, and RAG into real products
+- Optimize performance, SEO, and deployment pipelines
+- Convert Figma designs into pixel perfect production apps
 
 ---
 
-## 🎓 Education
-- **B.Sc. Data Science** – GIFT University  
-- **Full Stack Web Development & MERN Stack** – Coursera  
+## ⚙️ Tech Stack
+
+### Frontend
+React • Next.js • TypeScript • Tailwind CSS • HTML5 • CSS3 • Zustand • Redux • React Query
+
+### Backend
+Node.js • Express • GraphQL • REST APIs • WebSockets • JWT • OAuth
+
+### Databases
+MongoDB • PostgreSQL • Supabase • Redis
+
+### AI and Machine Learning
+Python • Scikit-learn • PyTorch • TensorFlow • Hugging Face • LangChain • LlamaIndex • RAG • Vector Search • OpenAI • Gemini • Groq
+
+### DevOps and Deployment
+Docker • AWS • Vercel • Nginx • GitHub Actions • CI/CD • Serverless • Monitoring
 
 ---
 
-## 🚀 What I Offer
-- Scalable **web applications** using modern stacks  
-- **Custom AI solutions** (chatbots, dashboards, automation)  
-- Reliable **end-to-end development** with DevOps practices  
-- Honest timelines & clean, maintainable code  
+## 🧩 Core Expertise
 
+- SaaS Platforms
+- Dashboards and Admin Panels
+- AI Chatbots and LLM Applications
+- E-commerce and Payment Systems
+- Real-time Systems
+- Performance Optimization
+- Codebase Audits and Architecture Fixes
 
-### ⚡ Fun Fact
-I believe **fast delivery with no fluff** is better than perfection that never ships.  
+---
 
+## 🛠️ Tools I Use Daily
 
-*Let’s build something meaningful together!*  
+Prisma • Git • GitHub • Postman • Jupyter • Streamlit • Figma • Storybook • Jira
 
+---
+
+## 📈 What You Get Working With Me
+
+- Fast MVP with clean architecture
+- Backend that handles thousands of users
+- Smooth and responsive frontend
+- Production bugs fixed quickly
+- Long term maintainable code
+- Clear communication and structured execution
+
+---
+
+## 🧪 Featured Projects
+
+### 🧬 Drug Prediction Web Application
+Machine learning powered medical prediction system with interactive dashboard.
+
+### 🏗️ affordablerenders
+3D architectural visualization platform with modern frontend and scalable backend.
+
+### 🧠 MRI AI Application Backend
+AI driven medical imaging backend with optimized APIs and ML integration.
+
+---
+
+## 💬 Client Feedback
+
+> "Absolutely exceptional with AI and coding skills. Highly recommended."
+
+> "Outstanding technical expertise and communication. Delivered with excellence."
+
+---
+
+## 📊 GitHub Stats
+
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=saadnaveeddev&show_icons=true" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=saadnaveeddev&layout=compact" />
+</p>
+
+---
+
+## 🤝 Let’s Build Something Serious
+
+Tell me your top three problems and I will propose a clear technical plan to solve them.
+
+📫 **Connect with me**
+- LinkedIn: https://www.linkedin.com/in/saadnaveeddev
+- Email: saad.naveed.dev@gmail.com
