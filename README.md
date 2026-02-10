@@ -89,9 +89,10 @@ Prisma • Git • GitHub • Postman • Jupyter • Streamlit • Figma • St
 ## 📊 GitHub Stats
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=saadnaveeddev&show_icons=true" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=saadnaveeddev&layout=compact" />
+  <img src="https://github-readme-stats-sigma-five.vercel.app/api?username=saadnaveeddev&show_icons=true&hide_border=true" height="170" />
+  <img src="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=saadnaveeddev&layout=compact&hide_border=true" height="170" />
 </p>
+
 
 ---
 
