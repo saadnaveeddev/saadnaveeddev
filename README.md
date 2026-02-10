@@ -85,26 +85,6 @@ Prisma • Git • GitHub • Postman • Jupyter • Streamlit • Figma • St
 
 ---
 
-## 🧪 Featured Projects
-
-### 🧬 Drug Prediction Web Application
-Machine learning powered medical prediction system with interactive dashboard.
-
-### 🏗️ affordablerenders
-3D architectural visualization platform with modern frontend and scalable backend.
-
-### 🧠 MRI AI Application Backend
-AI driven medical imaging backend with optimized APIs and ML integration.
-
----
-
-## 💬 Client Feedback
-
-> "Absolutely exceptional with AI and coding skills. Highly recommended."
-
-> "Outstanding technical expertise and communication. Delivered with excellence."
-
----
 
 ## 📊 GitHub Stats
 
