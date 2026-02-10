@@ -100,6 +100,18 @@ Prisma • Git • GitHub • Postman • Jupyter • Streamlit • Figma • St
   <img src="https://github-readme-stats-sigma-five.vercel.app/api?username=saadnaveeddev&show_icons=true&hide_border=true" height="170" />
   <img src="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=saadnaveeddev&layout=compact&hide_border=true" height="170" />
 </p>
+<p align="center">
+  <img src="https://github-readme-activity-graph.cyclic.app/graph?username=saadnaveeddev" />
+</p>
+<p align="center">
+  <img src="https://github-profile-trophy.vercel.app/?username=saadnaveeddev&no-frame=true&row=1" />
+</p>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/platane/snk/output/github-contribution-grid-snake.svg" />
+</p>
+<p align="center">
+  <img src="https://quotes-github-readme.vercel.app/api?type=horizontal" />
+</p>
 
 
 
