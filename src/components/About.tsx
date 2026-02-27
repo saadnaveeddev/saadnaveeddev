@@ -61,26 +61,22 @@ const About = () => {
             </div>
           </article>
 
-          {/* Abstract illustration */}
-          <div className={`relative transition-all duration-600 ease-out delay-[240ms] ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`} role="presentation" aria-hidden="true">
-            <div className="relative aspect-square max-w-md mx-auto">
-              {/* Abstract shapes */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-64 h-64 rounded-3xl bg-gradient-to-br from-accent/15 to-accent/5 rotate-12 animate-float" />
-              </div>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-48 h-48 rounded-2xl bg-gradient-to-tr from-muted/30 to-muted/10 -rotate-6" style={{ animationDelay: '2s' }} />
-              </div>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-32 h-32 rounded-xl border-2 border-accent/30 rotate-45" />
-              </div>
-              {/* Code icon in center */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-20 h-20 rounded-2xl bg-card border border-border shadow-elevated flex items-center justify-center">
-                  <svg className="w-10 h-10 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-label="Code symbol">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
-                  </svg>
-                </div>
+          {/* Profile Photo */}
+          <div className={`relative transition-all duration-600 ease-out delay-[240ms] ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+            <div className="relative aspect-square max-w-sm mx-auto">
+              {/* Decorative glow ring */}
+              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-accent/30 to-accent/5 blur-2xl scale-110" aria-hidden="true" />
+              {/* Accent border ring */}
+              <div className="absolute inset-0 rounded-full border-2 border-accent/20 scale-105" aria-hidden="true" />
+              {/* Photo container */}
+              <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-border shadow-elevated">
+                <img
+                  src="/images/saad-naveed.jpg"
+                  alt="Saad Naveed — Full-Stack Developer"
+                  className="w-full h-full object-cover object-top"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
             </div>
           </div>
