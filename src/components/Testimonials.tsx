@@ -86,8 +86,6 @@ const Testimonials = () => {
                   transitionDelay: `${index * 120}ms`,
                   boxShadow: 'var(--shadow-card)'
                 }}
-                itemScope
-                itemType="https://schema.org/Review"
               >
                 {/* Quote icon */}
                 <Quote className="w-8 h-8 text-accent/30 mb-4" strokeWidth={1} aria-hidden="true" />
@@ -101,25 +99,24 @@ const Testimonials = () => {
                       aria-hidden="true"
                     />
                   ))}
-                  <meta itemProp="ratingValue" content={testimonial.rating.toString()} />
                 </div>
 
                 {/* Testimonial text */}
-                <p className="text-muted-foreground leading-relaxed mb-6 line-clamp-3" itemProp="reviewBody">
+                <p className="text-muted-foreground leading-relaxed mb-6 line-clamp-3">
                   "{testimonial.text}"
                 </p>
 
                 {/* Client info */}
-                <div className="flex items-center gap-3" itemProp="author" itemScope itemType="https://schema.org/Person">
+                <div className="flex items-center gap-3">
                   {/* Avatar placeholder */}
                   <div className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-foreground font-medium text-sm border border-border/50" aria-hidden="true">
                     {testimonial.name.split(' ').map(n => n[0]).join('')}
                   </div>
                   <div>
-                    <div className="font-medium text-foreground text-sm" itemProp="name">
+                    <div className="font-medium text-foreground text-sm">
                       {testimonial.name}
                     </div>
-                    <div className="text-xs text-muted-foreground" itemProp="jobTitle">
+                    <div className="text-xs text-muted-foreground">
                       {testimonial.role}
                     </div>
                   </div>
@@ -141,11 +138,13 @@ const Testimonials = () => {
           "@context": "https://schema.org",
           "@type": "Person",
           "name": "Saad Naveed",
+          "url": "https://www.saadnaveeddev.com",
+          "jobTitle": "Full Stack Developer",
           "aggregateRating": {
             "@type": "AggregateRating",
             "ratingValue": "5",
             "bestRating": "5",
-            "ratingCount": testimonials.length.toString()
+            "ratingCount": testimonials.length
           }
         })
       }} />
