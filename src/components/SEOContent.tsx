@@ -99,27 +99,50 @@ const SEOContent = () => {
                         </div>
                     </div>
 
-                    {/* ── H2: Technologies ── */}
-                    <div className="mb-12">
-                        <h2 id="seo-tech-heading" className="section-heading mb-6">
-                            Technologies &amp; <span className="text-accent">Tools</span>
+                    {/* ── H2: Technologies (Web) ── */}
+                    <div className="mb-8">
+                        <h2 id="seo-tech-web-heading" className="text-2xl font-bold text-foreground mb-4">
+                            Web <span className="text-accent">Technologies</span>
                         </h2>
-                        <p className="text-muted-foreground text-lg leading-relaxed mb-6">
-                            Moreover, staying current with the best tools in the industry is a core part of how Saad
-                            Naveed works. Here are the primary technologies used across projects:
+                        <p className="text-muted-foreground text-lg leading-relaxed mb-4">
+                            Saad Naveed utilizes modern, scalable technologies to build robust web applications. From responsive frontends to complex backend architectures, these are the core tools used for web development:
                         </p>
-                        <div className="flex flex-wrap gap-3" role="list" aria-label="Technologies Saad Naveed uses">
+                        <div className="flex flex-wrap gap-2" role="list" aria-label="Web Technologies Saad Naveed uses">
                             {[
-                                "React", "Next.js", "Node.js", "Express",
-                                "MongoDB", "JavaScript", "TypeScript",
-                                "Tailwind CSS", "REST APIs", "GraphQL",
-                                "Artificial Intelligence", "Cloud Deployment",
-                                "Docker", "AWS", "Vercel",
+                                "React", "Next.js", "Node.js", "Express.js",
+                                "MongoDB", "PostgreSQL", "JavaScript", "TypeScript",
+                                "Tailwind CSS", "RESTful APIs", "GraphQL",
+                                "Docker", "AWS", "Vercel", "Supabase"
                             ].map((tech) => (
                                 <span
                                     key={tech}
                                     role="listitem"
-                                    className="tech-tag text-sm px-3 py-1.5"
+                                    className="tech-tag bg-secondary/50 text-foreground border border-border/50 text-sm px-3 py-1.5 rounded-full"
+                                >
+                                    {tech}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* ── H2: Technologies (AI/ML) ── */}
+                    <div className="mb-12">
+                        <h2 id="seo-tech-ai-heading" className="text-2xl font-bold text-foreground mb-4">
+                            AI &amp; <span className="text-accent">Machine Learning</span>
+                        </h2>
+                        <p className="text-muted-foreground text-lg leading-relaxed mb-4">
+                            Integrating artificial intelligence is essential for modern products. Saad Naveed incorporates smart features, data-driven decisions, and predictive models using the following AI/ML technologies:
+                        </p>
+                        <div className="flex flex-wrap gap-2" role="list" aria-label="AI and ML Technologies Saad Naveed uses">
+                            {[
+                                "Python", "TensorFlow", "PyTorch", "OpenAI API",
+                                "LangChain", "Hugging Face", "Pandas", "Scikit-Learn",
+                                "Computer Vision", "NLP", "LLM Integration", "Data Analytics"
+                            ].map((tech) => (
+                                <span
+                                    key={tech}
+                                    role="listitem"
+                                    className="tech-tag bg-secondary/50 text-foreground border border-border/50 text-sm px-3 py-1.5 rounded-full"
                                 >
                                     {tech}
                                 </span>
