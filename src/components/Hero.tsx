@@ -24,15 +24,19 @@ const Hero = () => {
 
       <div className="section-container text-center">
         <div className="max-w-3xl mx-auto">
-          {/* Main Heading - Primary H1 */}
+          {/* Main Heading - Primary H1 with full SEO keyword */}
           <h1 className="text-5xl md:text-7xl font-bold text-foreground tracking-tight animate-fade-up">
             Saad Naveed
           </h1>
 
-          {/* Subtitle with role */}
-          <p className="mt-6 text-lg md:text-xl text-muted-foreground font-medium animate-fade-up-delay-1" role="doc-subtitle">
-            Full-Stack Developer{" "}
-            <span className="text-accent" aria-hidden="true">|</span> MERN{" "}
+          {/* Subtitle with role — supports secondary keywords */}
+          <p className="mt-4 text-xl md:text-2xl text-accent font-semibold animate-fade-up-delay-1">
+            Full Stack Developer &amp; MERN Stack Engineer
+          </p>
+
+          <p className="mt-4 text-lg md:text-xl text-muted-foreground font-medium animate-fade-up-delay-1" role="doc-subtitle">
+            React Developer{" "}
+            <span className="text-accent" aria-hidden="true">|</span> Node.js{" "}
             <span className="text-accent" aria-hidden="true">|</span> AI-Powered Web Solutions
           </p>
 
@@ -43,12 +47,13 @@ const Hero = () => {
             that solve real business problems.
           </p>
 
-          {/* CTA */}
-          <div className="mt-12 animate-fade-up-delay-3">
+          {/* CTA buttons */}
+          <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-up-delay-3">
             <button
               onClick={scrollToWork}
               className="btn-primary group"
               aria-label="Scroll to portfolio section"
+              id="hero-view-work-btn"
             >
               View My Work
               <ArrowDown className="w-4 h-4 transition-transform group-hover:translate-y-1" aria-hidden="true" />

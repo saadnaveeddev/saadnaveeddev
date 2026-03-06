@@ -72,7 +72,8 @@ const About = () => {
               <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-border shadow-elevated">
                 <img
                   src="/images/saad-naveed.jpg"
-                  alt="Saad Naveed — Full-Stack Developer"
+                  alt="Saad Naveed full stack developer coding workspace"
+                  title="Saad Naveed - MERN Stack Developer"
                   className="w-full h-full object-cover object-top"
                   loading="lazy"
                   decoding="async"

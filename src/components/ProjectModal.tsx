@@ -43,13 +43,13 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
   if (!isOpen || !project) return null;
 
   const nextImage = () => {
-    setCurrentImageIndex((prev) => 
+    setCurrentImageIndex((prev) =>
       prev === project.gallery.length - 1 ? 0 : prev + 1
     );
   };
 
   const prevImage = () => {
-    setCurrentImageIndex((prev) => 
+    setCurrentImageIndex((prev) =>
       prev === 0 ? project.gallery.length - 1 : prev - 1
     );
   };
@@ -57,18 +57,18 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">
       {/* Backdrop */}
-      <div 
+      <div
         className="absolute inset-0 bg-background/90 backdrop-blur-sm animate-fade-in"
         onClick={onClose}
       />
-      
+
       {/* Modal */}
       <div className="relative w-full max-w-4xl max-h-[90vh] mx-4 bg-card border border-border rounded-2xl overflow-hidden animate-scale-in"
-           style={{ boxShadow: 'var(--shadow-elevated)' }}>
+        style={{ boxShadow: 'var(--shadow-elevated)' }}>
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-border">
           <h2 className="text-2xl font-semibold text-foreground">{project.title}</h2>
-          <button 
+          <button
             onClick={onClose}
             className="w-10 h-10 rounded-lg bg-secondary hover:bg-muted flex items-center justify-center transition-colors"
           >
@@ -82,20 +82,20 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
           <div className="relative aspect-video bg-background">
             <img
               src={project.gallery[currentImageIndex]}
-              alt={`${project.title} screenshot ${currentImageIndex + 1}`}
+              alt={`Saad Naveed MERN stack project dashboard for ${project.title} - screenshot ${currentImageIndex + 1}`}
               className="w-full h-full object-cover"
             />
-            
+
             {project.gallery.length > 1 && (
               <>
                 {/* Navigation arrows */}
-                <button 
+                <button
                   onClick={prevImage}
                   className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background/80 hover:bg-background flex items-center justify-center transition-colors border border-border"
                 >
                   <ChevronLeft className="w-5 h-5 text-foreground" />
                 </button>
-                <button 
+                <button
                   onClick={nextImage}
                   className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background/80 hover:bg-background flex items-center justify-center transition-colors border border-border"
                 >
@@ -108,11 +108,10 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
                     <button
                       key={index}
                       onClick={() => setCurrentImageIndex(index)}
-                      className={`w-2 h-2 rounded-full transition-colors ${
-                        index === currentImageIndex 
-                          ? 'bg-accent' 
+                      className={`w-2 h-2 rounded-full transition-colors ${index === currentImageIndex
+                          ? 'bg-accent'
                           : 'bg-foreground/30 hover:bg-foreground/50'
-                      }`}
+                        }`}
                     />
                   ))}
                 </div>
@@ -144,7 +143,7 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
 
             {/* Live Link */}
             {project.liveUrl && (
-              <a 
+              <a
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"

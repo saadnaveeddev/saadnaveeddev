@@ -1,26 +1,36 @@
 import { useEffect, useRef, useState } from "react";
-import { Code2, Palette, Server, Cpu } from "lucide-react";
+import { Code2, Monitor, Server, Cpu, Network, Zap } from "lucide-react";
 
 const services = [
   {
     icon: Code2,
-    title: "Full-Stack Web Development",
+    title: "Full Stack Web Development",
     description: "Scalable MERN applications with clean APIs & modern UI that grow with your business.",
   },
   {
-    icon: Palette,
-    title: "Frontend Engineering",
-    description: "React / Next.js expertise delivering responsive, fast, conversion-focused interfaces.",
+    icon: Monitor,
+    title: "React Application Development",
+    description: "Building responsive, fast, and interactive user interfaces for modern frontend products.",
   },
   {
     icon: Server,
-    title: "Backend & APIs",
-    description: "Secure, optimized backends with robust databases and seamless integrations.",
+    title: "Node.js Backend Development",
+    description: "Secure, optimized server-side logic and robust databases powering complex web apps.",
   },
   {
     icon: Cpu,
-    title: "AI-Powered Features",
-    description: "Smart automation and AI-driven dashboards that add intelligence to your products.",
+    title: "AI Powered Web Applications",
+    description: "Integrating smart automation and machine learning features to add intelligence to products.",
+  },
+  {
+    icon: Network,
+    title: "API Development",
+    description: "Designing and integrating seamless RESTful and GraphQL APIs for various client needs.",
+  },
+  {
+    icon: Zap,
+    title: "Performance Optimization",
+    description: "Improving page load times, SEO metrics, and overall application speed and efficiency.",
   },
 ];
 

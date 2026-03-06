@@ -1,6 +1,10 @@
 # Allow all major search engine crawlers
 User-agent: *
 Allow: /
+Disallow: /404
+
+# Crawl-delay for considerate crawling
+Crawl-delay: 10
 
 # Sitemap location
-Sitemap: https://saadnaveeddev.lovable.app/sitemap.xml
+Sitemap: https://saadnaveeddev.com/sitemap.xml

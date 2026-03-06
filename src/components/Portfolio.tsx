@@ -212,7 +212,7 @@ const Portfolio = () => {
       <div className="relative overflow-hidden aspect-[4/3]">
         <img
           src={project.image}
-          alt={`${project.title} - ${project.description}`}
+          alt={`Saad Naveed full stack developer project: ${project.title}`}
           loading={index < 3 ? "eager" : "lazy"}
           className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
         />
