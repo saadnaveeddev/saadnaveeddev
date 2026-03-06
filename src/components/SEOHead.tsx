@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 
 /**
  * SEO Component for managing page metadata dynamically
- * Updates document title and meta tags based on current route
+ * Updates document title and meta tags based on current route/section
  */
 export const SEOHead = () => {
     const location = useLocation();
@@ -11,25 +11,25 @@ export const SEOHead = () => {
     useEffect(() => {
         // Update meta description based on hash (section)
         const hash = location.hash;
-        let description = "Experienced full-stack developer specializing in MERN stack, React, Node.js, and AI-powered web applications. Building scalable, high-performance solutions for modern businesses.";
-        let title = "Saad Naveed - Full-Stack Developer | MERN Stack & AI Solutions";
+        let description = "Saad Naveed is a full stack developer specializing in MERN stack, React, Node.js, and AI powered web applications for scalable modern businesses.";
+        let title = "Saad Naveed | Full Stack Developer (MERN & AI)";
 
         switch (hash) {
             case '#about':
-                title = "About Saad Naveed - Full-Stack Developer";
-                description = "Learn about Saad Naveed, a full-stack developer with 5+ years of experience building scalable MERN applications and AI-powered solutions.";
+                title = "About Saad Naveed | Full Stack MERN Developer";
+                description = "Learn about Saad Naveed, a full stack developer with 5+ years of experience building scalable MERN applications and AI-powered web solutions.";
                 break;
             case '#services':
-                title = "Services - Full-Stack Web Development | Saad Naveed";
-                description = "Expert full-stack development services including MERN stack applications, frontend engineering, backend APIs, and AI-powered features.";
+                title = "Services | Saad Naveed Full Stack Developer";
+                description = "Saad Naveed offers full stack web development, React application development, Node.js backend, and AI-powered web application services.";
                 break;
             case '#portfolio':
-                title = "Portfolio - Projects by Saad Naveed";
+                title = "Portfolio | Projects by Saad Naveed";
                 description = "Explore Saad Naveed's portfolio of 50+ completed projects including e-commerce platforms, AI dashboards, SaaS applications, and more.";
                 break;
             case '#testimonials':
-                title = "Client Testimonials - Saad Naveed";
-                description = "Read what clients say about working with Saad Naveed. 5-star rated full-stack developer trusted by startups and enterprises.";
+                title = "Client Testimonials | Saad Naveed Developer";
+                description = "Read what clients say about working with Saad Naveed. 5-star rated full stack developer trusted by startups and enterprises worldwide.";
                 break;
         }
 
@@ -41,6 +41,13 @@ export const SEOHead = () => {
             metaDescription.setAttribute('content', description);
         }
 
+        // Update canonical URL
+        const canonical = document.querySelector('link[rel="canonical"]');
+        if (canonical) {
+            const baseUrl = 'https://saadnaveed.dev';
+            canonical.setAttribute('href', hash ? `${baseUrl}/${hash}` : baseUrl);
+        }
+
         // Update OG tags
         const ogTitle = document.querySelector('meta[property="og:title"]');
         if (ogTitle) {
@@ -50,6 +57,11 @@ export const SEOHead = () => {
         const ogDescription = document.querySelector('meta[property="og:description"]');
         if (ogDescription) {
             ogDescription.setAttribute('content', description);
+        }
+
+        const ogUrl = document.querySelector('meta[property="og:url"]');
+        if (ogUrl) {
+            ogUrl.setAttribute('content', `https://saadnaveed.dev${hash ? '/' + hash : ''}`);
         }
 
         // Update Twitter tags

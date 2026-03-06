@@ -1,11 +1,15 @@
+import React, { Suspense } from "react";
 import Hero from "@/components/Hero";
-import About from "@/components/About";
-import Services from "@/components/Services";
-import Portfolio from "@/components/Portfolio";
-import Testimonials from "@/components/Testimonials";
-import Footer from "@/components/Footer";
-import AnimatedBackground from "@/components/AnimatedBackground";
 import SEOHead from "@/components/SEOHead";
+import AnimatedBackground from "@/components/AnimatedBackground";
+
+// Lazy load below-the-fold components for better performance SEO (Lighthouse score)
+const About = React.lazy(() => import("@/components/About"));
+const Services = React.lazy(() => import("@/components/Services"));
+const Portfolio = React.lazy(() => import("@/components/Portfolio"));
+const Testimonials = React.lazy(() => import("@/components/Testimonials"));
+const SEOContent = React.lazy(() => import("@/components/SEOContent"));
+const Footer = React.lazy(() => import("@/components/Footer"));
 
 const Index = () => {
   return (
@@ -16,13 +20,18 @@ const Index = () => {
         <AnimatedBackground />
       </div>
 
-      {/* Content sections */}
+      {/* Hero section is loaded initially for fast LCP (Largest Contentful Paint) */}
       <Hero />
-      <About />
-      <Services />
-      <Portfolio />
-      <Testimonials />
-      <Footer />
+
+      {/* Lazy loaded content sections */}
+      <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading content...</div>}>
+        <About />
+        <Services />
+        <Portfolio />
+        <Testimonials />
+        <SEOContent />
+        <Footer />
+      </Suspense>
     </main>
   );
 };
