@@ -132,6 +132,18 @@ const webProjects: Project[] = [
 
 const aiProjects: Project[] = [
   {
+    title: "AI Voice Cloner",
+    description: "Requires only a 10-second audio sample to generate a perfect voice clone.",
+    fullDescription: "A sophisticated AI voice cloning application leveraging the VoxCPM model. Requires only a 10-second audio sample of the target voice to create a seamless and perfect clone. Features a custom-designed, premium dark-themed Streamlit interface with glassmorphism effects and fluid animations. Engineered for cross-platform compatibility with robust PyTorch integration and offline inference for maximum speed and data privacy.",
+    image: "/images/voice-cloner-thumb.png",
+    gallery: [
+      "/images/voice-cloner-thumb.png",
+      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&h=800&fit=crop&auto=format",
+      "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=1200&h=800&fit=crop&auto=format",
+    ],
+    tags: ["Python", "PyTorch", "Streamlit", "VoxCPM"],
+  },
+  {
     title: "AI Analytics Dashboard",
     description: "Real-time data visualization platform with predictive insights.",
     fullDescription: "An intelligent analytics platform that transforms raw data into actionable insights. Powered by machine learning models for predictive analysis, real-time data streaming, and interactive D3.js visualizations. Helps businesses make data-driven decisions faster.",
