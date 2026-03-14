@@ -47,10 +47,23 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
   <link rel="manifest" href="/site.webmanifest" />
 
-  <!-- Performance Optimization -->
+  <!-- Performance Optimization: Fonts & Preloads -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Preload Critical Fonts -->
+  <link rel="preload"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+    as="style" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+    media="print" onload="this.media='all'" />
+  <noscript>
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" />
+  </noscript>
   <link rel="dns-prefetch" href="https://images.unsplash.com" />
+  <!-- Preload Hero Image -->
+  <link rel="preload" as="image" href="/images/saad-naveed.jpg" fetchpriority="high" />
 
   <!-- Structured Data (JSON-LD) — Person Schema -->
   <script type="application/ld+json">
