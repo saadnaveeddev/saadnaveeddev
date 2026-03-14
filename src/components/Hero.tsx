@@ -24,8 +24,19 @@ const Hero = () => {
 
       <div className="section-container text-center">
         <div className="max-w-3xl mx-auto">
+          {/* Hero Image - Explicit LCP target */}
+          <img
+            src="/images/saad-naveed.jpg"
+            alt="Saad Naveed"
+            width="120"
+            height="120"
+            loading="eager"
+            fetchPriority="high"
+            className="rounded-full w-28 h-28 mx-auto mb-6 border-2 border-accent/20 object-cover shadow-elevated"
+          />
+
           {/* Main Heading - Primary H1 with full SEO keyword */}
-          <h1 className="text-5xl md:text-7xl font-bold text-foreground tracking-tight animate-fade-up">
+          <h1 className="text-5xl md:text-7xl font-bold text-foreground tracking-tight">
             Saad Naveed
           </h1>
 
