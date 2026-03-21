@@ -354,13 +354,15 @@ const Testimonials = () => {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "Person",
-            name: "Saad Naveed",
-            url: "https://www.saadnaveeddev.com",
-            jobTitle: "Full Stack Developer",
+            "@type": "ProfessionalService",
+            name: "Saad Naveed Development Services",
+            url: "https://www.saadnaveeddev.com/",
+            image: "https://www.saadnaveeddev.com/images/saad-naveed.jpg",
+            description: "Freelance Full Stack Developer (MERN & AI)",
+            priceRange: "$$",
             aggregateRating: {
               "@type": "AggregateRating",
-              ratingValue: "5",
+              ratingValue: "5.0",
               bestRating: "5",
               ratingCount: testimonials.length,
             },
