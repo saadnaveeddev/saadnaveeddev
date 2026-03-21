@@ -81,8 +81,9 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
           {/* Image Gallery */}
           <div className="relative aspect-video bg-background">
             <img
-              src={project.gallery[currentImageIndex]}
-              alt={`Saad Naveed MERN stack project dashboard for ${project.title} - screenshot ${currentImageIndex + 1}`}
+              src={project.gallery[currentImageIndex].startsWith('http') ? project.gallery[currentImageIndex] : `https://www.saadnaveeddev.com${project.gallery[currentImageIndex]}`}
+              alt={`Saad Naveed Full Stack Developer AI Engineer project for ${project.title} - screenshot ${currentImageIndex + 1}`}
+              title={`Saad Naveed Project Screenshot - ${project.title}`}
               className="w-full h-full object-cover"
             />
 

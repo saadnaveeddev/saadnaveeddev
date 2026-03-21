@@ -68,12 +68,14 @@ const About = () => {
               <div className="absolute inset-0 rounded-full bg-gradient-to-br from-accent/30 to-accent/5 blur-2xl scale-110" aria-hidden="true" />
               {/* Accent border ring */}
               <div className="absolute inset-0 rounded-full border-2 border-accent/20 scale-105" aria-hidden="true" />
-              {/* Photo container */}
-              <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-border shadow-elevated">
+              {/* Photo container with schema markup */}
+              <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-border shadow-elevated" itemScope itemType="https://schema.org/Person">
+                <span className="sr-only" itemProp="name">Saad Naveed</span>
                 <img
-                  src="/images/saad-naveed.jpg"
-                  alt="Saad Naveed full stack developer coding workspace"
-                  title="Saad Naveed - MERN Stack Developer"
+                  src="https://www.saadnaveeddev.com/images/saad-naveed.jpg"
+                  alt="Saad Naveed Full Stack Developer AI Engineer profile picture"
+                  title="Saad Naveed - Full Stack Developer & AI Engineer"
+                  itemProp="image"
                   className="w-full h-full object-cover object-top"
                   loading="lazy"
                   decoding="async"

@@ -223,8 +223,9 @@ const Portfolio = () => {
       {/* Project image */}
       <div className="relative overflow-hidden aspect-[4/3]">
         <img
-          src={project.image}
-          alt={`Saad Naveed full stack developer project: ${project.title}`}
+          src={project.image.startsWith('http') ? project.image : `https://www.saadnaveeddev.com${project.image}`}
+          alt={`Saad Naveed Full Stack Developer AI Engineer project: ${project.title}`}
+          title={`Saad Naveed Portfolio Project - ${project.title}`}
           loading={index < 3 ? "eager" : "lazy"}
           className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
         />
