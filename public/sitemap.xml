@@ -1,49 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   
   <!-- Home Page -->
   <url>
-    <loc>https://saadnaveed.dev/</loc>
-    <lastmod>2026-03-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  
-  <!-- About Section -->
-  <url>
-    <loc>https://saadnaveed.dev/#about</loc>
-    <lastmod>2026-03-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-  <!-- Services Section -->
-  <url>
-    <loc>https://saadnaveed.dev/#services</loc>
-    <lastmod>2026-03-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-  <!-- Portfolio Section -->
-  <url>
-    <loc>https://saadnaveed.dev/#portfolio</loc>
-    <lastmod>2026-03-06</lastmod>
+    <loc>https://www.saadnaveeddev.com/</loc>
+    <lastmod>2026-03-22</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>1.0</priority>
+    
+    <!-- Explicitly telling Google about images -->
+    <image:image>
+      <image:loc>https://www.saadnaveeddev.com/images/saad-naveed.jpg</image:loc>
+      <image:title>Saad Naveed</image:title>
+      <image:caption>Saad Naveed - Full Stack Developer and AI Engineer</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.saadnaveeddev.com/images/caelum-hero.png</image:loc>
+      <image:title>Caelum Collection E-Commerce App</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.saadnaveeddev.com/images/pdf-vision-hero.png</image:loc>
+      <image:title>PDF Vision Editor Tool</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.saadnaveeddev.com/images/powerland-hero.png</image:loc>
+      <image:title>Powerland Service Platform</image:title>
+    </image:image>
   </url>
-  
-  <!-- Testimonials Section -->
-  <url>
-    <loc>https://saadnaveed.dev/#testimonials</loc>
-    <lastmod>2026-03-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-
-
 </urlset>
