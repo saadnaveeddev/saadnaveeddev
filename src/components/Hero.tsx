@@ -23,25 +23,32 @@ const Hero = () => {
       </div>
 
       <div className="section-container text-center">
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-3xl mx-auto" itemScope itemType="https://schema.org/Person">
           {/* Hero Image - Explicit LCP target */}
           <img
-            src="/images/saad-naveed.jpg"
-            alt="Saad Naveed"
+            src="https://www.saadnaveeddev.com/images/saad-naveed.jpg"
+            alt="Saad Naveed Full Stack Developer AI Engineer portfolio profile picture"
+            title="Saad Naveed - Full Stack Developer & AI Engineer"
             width="120"
             height="120"
             loading="eager"
             fetchPriority="high"
+            itemProp="image"
             className="rounded-full w-28 h-28 mx-auto mb-6 border-2 border-accent/20 object-cover shadow-elevated"
           />
 
+          {/* Hidden semantic text for image context */}
+          <span className="sr-only">
+            Profile photo of Saad Naveed, an expert Full Stack Developer and AI Engineer specializing in high-performance web applications.
+          </span>
+
           {/* Main Heading - Primary H1 with full SEO keyword */}
-          <h1 className="text-5xl md:text-7xl font-bold text-foreground tracking-tight">
+          <h1 className="text-5xl md:text-7xl font-bold text-foreground tracking-tight" itemProp="name">
             Saad Naveed
           </h1>
 
           {/* Subtitle with role — supports secondary keywords */}
-          <p className="mt-4 text-xl md:text-2xl text-accent font-semibold animate-fade-up-delay-1">
+          <p className="mt-4 text-xl md:text-2xl text-accent font-semibold animate-fade-up-delay-1" itemProp="jobTitle">
             Full Stack Developer &amp; MERN Stack Engineer
           </p>
 

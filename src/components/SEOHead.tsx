@@ -9,10 +9,11 @@ export const SEOHead = () => {
     const location = useLocation();
 
     useEffect(() => {
-        // Update meta description based on hash (section)
         const hash = location.hash;
         let description = "Saad Naveed is a full stack developer specializing in MERN stack, React, Node.js, and AI powered web applications for scalable modern businesses.";
         let title = "Saad Naveed | Full Stack Developer (MERN & AI)";
+        const imageUrl = "https://www.saadnaveeddev.com/images/saad-naveed.jpg";
+        const url = `https://www.saadnaveeddev.com${hash ? '/' + hash : ''}`;
 
         switch (hash) {
             case '#about':
@@ -25,7 +26,7 @@ export const SEOHead = () => {
                 break;
             case '#portfolio':
                 title = "Portfolio | Projects by Saad Naveed";
-                description = "Explore Saad Naveed's portfolio of 50+ completed projects including e-commerce platforms, AI dashboards, SaaS applications, and more.";
+                description = "Explore Saad Naveed's portfolio of completed projects including e-commerce platforms, AI dashboards, SaaS applications, and more.";
                 break;
             case '#testimonials':
                 title = "Client Testimonials | Saad Naveed Developer";
@@ -35,45 +36,58 @@ export const SEOHead = () => {
 
         document.title = title;
 
-        // Update meta description
-        const metaDescription = document.querySelector('meta[name="description"]');
-        if (metaDescription) {
-            metaDescription.setAttribute('content', description);
-        }
+        // Helper to update or create meta tags robustly
+        const setMetaTag = (selector: string, keyAttr: string, keyVal: string, contentVal: string) => {
+            let meta = document.querySelector(selector);
+            if (!meta) {
+                meta = document.createElement('meta');
+                meta.setAttribute(keyAttr, keyVal);
+                document.head.appendChild(meta);
+            }
+            meta.setAttribute('content', contentVal);
+        };
+
+        setMetaTag('meta[name="description"]', 'name', 'description', description);
+        setMetaTag('meta[property="og:title"]', 'property', 'og:title', title);
+        setMetaTag('meta[property="og:description"]', 'property', 'og:description', description);
+        setMetaTag('meta[property="og:url"]', 'property', 'og:url', url);
+        setMetaTag('meta[property="og:image"]', 'property', 'og:image', imageUrl);
+        setMetaTag('meta[property="og:image:alt"]', 'property', 'og:image:alt', "Saad Naveed Full Stack Developer AI Engineer");
+        setMetaTag('meta[property="og:type"]', 'property', 'og:type', "website");
+
+        setMetaTag('meta[name="twitter:card"]', 'name', 'twitter:card', 'summary_large_image');
+        setMetaTag('meta[name="twitter:title"]', 'name', 'twitter:title', title);
+        setMetaTag('meta[name="twitter:description"]', 'name', 'twitter:description', description);
+        setMetaTag('meta[name="twitter:image"]', 'name', 'twitter:image', imageUrl);
+        setMetaTag('meta[name="twitter:image:alt"]', 'name', 'twitter:image:alt', "Saad Naveed Full Stack Developer AI Engineer");
 
         // Update canonical URL
-        const canonical = document.querySelector('link[rel="canonical"]');
-        if (canonical) {
-            const baseUrl = 'https://saadnaveed.dev';
-            canonical.setAttribute('href', hash ? `${baseUrl}/${hash}` : baseUrl);
+        let canonical = document.querySelector('link[rel="canonical"]');
+        if (!canonical) {
+            canonical = document.createElement('link');
+            canonical.setAttribute('rel', 'canonical');
+            document.head.appendChild(canonical);
         }
+        canonical.setAttribute('href', url);
 
-        // Update OG tags
-        const ogTitle = document.querySelector('meta[property="og:title"]');
-        if (ogTitle) {
-            ogTitle.setAttribute('content', title);
+        // Add JSON-LD Structured Data for Person (critical for Google Images + Knowledge Panel index)
+        let script = document.querySelector('script[id="schema-person"]');
+        if (!script) {
+            script = document.createElement('script');
+            script.setAttribute('id', 'schema-person');
+            script.setAttribute('type', 'application/ld+json');
+            document.head.appendChild(script);
         }
+        script.textContent = JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Saad Naveed",
+            "url": "https://www.saadnaveeddev.com",
+            "image": imageUrl,
+            "jobTitle": "Full Stack Developer & AI Engineer",
+            "description": description
+        });
 
-        const ogDescription = document.querySelector('meta[property="og:description"]');
-        if (ogDescription) {
-            ogDescription.setAttribute('content', description);
-        }
-
-        const ogUrl = document.querySelector('meta[property="og:url"]');
-        if (ogUrl) {
-            ogUrl.setAttribute('content', `https://saadnaveed.dev${hash ? '/' + hash : ''}`);
-        }
-
-        // Update Twitter tags
-        const twitterTitle = document.querySelector('meta[name="twitter:title"]');
-        if (twitterTitle) {
-            twitterTitle.setAttribute('content', title);
-        }
-
-        const twitterDescription = document.querySelector('meta[name="twitter:description"]');
-        if (twitterDescription) {
-            twitterDescription.setAttribute('content', description);
-        }
     }, [location]);
 
     return null;
