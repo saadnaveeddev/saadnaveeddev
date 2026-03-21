@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 Disallow: /404
-Sitemap: https://saadnaveeddev.com/sitemap.xml
+Sitemap: https://www.saadnaveeddev.com/sitemap.xml

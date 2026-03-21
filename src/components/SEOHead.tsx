@@ -13,7 +13,7 @@ export const SEOHead = () => {
         let description = "Saad Naveed is a full stack developer specializing in MERN stack, React, Node.js, and AI powered web applications for scalable modern businesses.";
         let title = "Saad Naveed | Full Stack Developer (MERN & AI)";
         const imageUrl = "https://www.saadnaveeddev.com/images/saad-naveed.jpg";
-        const url = `https://www.saadnaveeddev.com${hash ? '/' + hash : ''}`;
+        const url = `https://www.saadnaveeddev.com/`;
 
         switch (hash) {
             case '#about':
