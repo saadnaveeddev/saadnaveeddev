@@ -132,6 +132,18 @@ const webProjects: Project[] = [
 
 const aiProjects: Project[] = [
   {
+    title: "ScamShield AI",
+    description: "Dual deep-learning platform for AI voice detection and scam text classification.",
+    fullDescription: "Built a dual deep-learning platform combining a CNN (MFCC-based) for AI-generated voice detection and a fine-tuned BERT model for scam text classification, achieving 88% voice test accuracy and 99.90% text validation accuracy. Integrated Google STT and Whisper into a unified Streamlit app enabling end-to-end voice-to-verdict scam analysis. The local BERT inference runs 4.5–6× faster than the Gemini API with full offline, privacy-preserving operation.",
+    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&h=400&fit=crop&auto=format",
+    gallery: [
+      "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1200&h=800&fit=crop&auto=format",
+      "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?w=1200&h=800&fit=crop&auto=format",
+      "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=800&fit=crop&auto=format",
+    ],
+    tags: ["Python", "BERT", "CNN", "Streamlit", "PyTorch"],
+  },
+  {
     title: "AI Voice Cloner",
     description: "Requires only a 10-second audio sample to generate a perfect voice clone.",
     fullDescription: "A sophisticated AI voice cloning application leveraging the VoxCPM model. Requires only a 10-second audio sample of the target voice to create a seamless and perfect clone. Features a custom-designed, premium dark-themed Streamlit interface with glassmorphism effects and fluid animations. Engineered for cross-platform compatibility with robust PyTorch integration and offline inference for maximum speed and data privacy.",
