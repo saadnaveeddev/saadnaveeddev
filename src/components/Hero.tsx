@@ -1,4 +1,5 @@
-import { ArrowDown } from "lucide-react";
+import { ArrowDown, MessageSquare } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   const scrollToWork = () => {
@@ -76,6 +77,15 @@ const Hero = () => {
               View My Work
               <ArrowDown className="w-4 h-4 transition-transform group-hover:translate-y-1" aria-hidden="true" />
             </button>
+            <Link
+              to="/contact"
+              className="btn-outline group"
+              aria-label="Go to contact page"
+              id="hero-contact-btn"
+            >
+              <MessageSquare className="w-4 h-4 text-accent" aria-hidden="true" />
+              Get in Touch
+            </Link>
           </div>
         </div>
 
