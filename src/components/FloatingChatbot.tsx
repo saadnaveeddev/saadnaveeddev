@@ -31,8 +31,8 @@ const knowledgeBase: Record<string, string> = {
 
   // Contact
   contact:
-    "You can reach Saad through:\n• **Email**: saadnaveed.dev@gmail.com\n• **LinkedIn**: linkedin.com/in/saadnaveeddev\n• **WhatsApp**: Quick chat available\n• **Calendly**: Book a free 15-min call\n\nOr visit the [Contact page](/contact).",
-  email: "You can email Saad at **saadnaveed.dev@gmail.com** for project inquiries and collaborations.",
+    "You can reach Saad through:\n• **Email**: saad.naveed.dev@gmail.com\n• **LinkedIn**: linkedin.com/in/saadnaveeddev\n• **WhatsApp**: Quick chat available\n• **Calendly**: Book a free 15-min call\n\nOr visit the [Contact page](/contact).",
+  email: "You can email Saad at **saad.naveed.dev@gmail.com** for project inquiries and collaborations.",
   hire: "Saad is open to freelance & contract work. The best way to start is to **book a 15-minute call** on the Contact page to discuss your project requirements.",
 
   // Tech stack
@@ -195,11 +195,10 @@ const FloatingChatbot = () => {
               {messages.map((msg, i) => (
                 <div key={i} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
                   <div
-                    className={`max-w-[85%] px-4 py-2.5 rounded-2xl text-sm leading-relaxed ${
-                      msg.role === "user"
+                    className={`max-w-[85%] px-4 py-2.5 rounded-2xl text-sm leading-relaxed ${msg.role === "user"
                         ? "bg-accent text-black rounded-br-md"
                         : "bg-secondary/60 text-foreground/90 rounded-bl-md border border-border/30"
-                    }`}
+                      }`}
                   >
                     {renderText(msg.text)}
                   </div>
