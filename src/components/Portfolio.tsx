@@ -12,11 +12,7 @@ const webProjects: Project[] = [
     description: "Premium tailoring showcase with booking and measurement features.",
     fullDescription: "Hijazi Tailoring is a sleek, modern web presence built to showcase a premium tailoring shop in Al Khobar. The site highlights core services like bespoke suits, alterations, formal wear, and traditional garments. With a clean, responsive design, visitors can explore galleries, view pricing, book fittings, and access measurement guides. The site emphasizes craftsmanship, punctual delivery, and customer-centric service. Built with modern web tech, it serves both as a branding tool and a lead-generation platform.",
     image: "/images/hijazi-main.png",
-    gallery: [
-      "/images/hijazi-main.png",
-      "/images/hijazi-services.png",
-      "/images/hijazi-booking.png",
-    ],
+    gallery: ["/images/hijazi-main.png", "/images/hijazi-services.png", "/images/hijazi-booking.png"],
     tags: ["Next.js", "React", "Tailwind CSS", "Vercel"],
     liveUrl: "https://nextjs-tailor-shop.vercel.app/en",
   },
@@ -25,11 +21,7 @@ const webProjects: Project[] = [
     description: "Industrial power solutions platform with location services and product catalog.",
     fullDescription: "A modern web platform for PowerLand House, an industrial electrical engineering company. The solution established their digital identity, featuring accurate location pinning to solve accessibility issues and a comprehensive service showcase for transformers, generators, and motors. The platform helped drive a 36% increase in client acquisition.",
     image: "/images/powerland-hero.png",
-    gallery: [
-      "/images/powerland-hero.png",
-      "/images/powerland-services.png",
-      "/images/powerland-location.png",
-    ],
+    gallery: ["/images/powerland-hero.png", "/images/powerland-services.png", "/images/powerland-location.png"],
     tags: ["React", "Vite", "Google Maps API", "Tailwind CSS"],
     liveUrl: "https://powerland-house.lovable.app/",
   },
@@ -38,11 +30,7 @@ const webProjects: Project[] = [
     description: "Intelligent PDF workspace for editing, signing, and collaboration.",
     fullDescription: "A professional PDF platform redefining document workflows. PDF-Vision helps teams centralize editing, signing, and collaboration on high-stakes documents. Featuring 20+ purpose-built tools including OCR, Redaction, and AI-powered Chat with PDF. Trusted by over 1M+ active users to process millions of documents with enterprise-grade security.",
     image: "/images/pdf-vision-hero.png",
-    gallery: [
-      "/images/pdf-vision-hero.png",
-      "/images/pdf-vision-editor.png",
-      "/images/pdf-vision-tools.png",
-    ],
+    gallery: ["/images/pdf-vision-hero.png", "/images/pdf-vision-editor.png", "/images/pdf-vision-tools.png"],
     tags: ["Next.js", "React", "TypeScript", "AI Integration"],
     liveUrl: "https://pdf-vision.com/",
   },
@@ -51,11 +39,7 @@ const webProjects: Project[] = [
     description: "Premium leather biker jacket e-commerce store with custom sizing.",
     fullDescription: "CAELUM WEAR International is a premium e-commerce brand specializing in handcrafted leather biker jackets. The platform showcases a 'Legendary Style' with a focus on master craftsmanship and 100% genuine leather. Features include a comprehensive collection view (Biker, Classic, Winter), a 'Custom Fit' bespoke ordering system, and a seamless shopping experience for global customers.",
     image: "/images/caelum-hero.png",
-    gallery: [
-      "/images/caelum-hero.png",
-      "/images/caelum-collection.png",
-      "/images/caelum-custom.png",
-    ],
+    gallery: ["/images/caelum-hero.png", "/images/caelum-collection.png", "/images/caelum-custom.png"],
     tags: ["React", "Tailwind CSS", "Framer Motion", "Supabase"],
     liveUrl: "https://caelumwear-international.lovable.app/",
   },
@@ -453,94 +437,42 @@ const Portfolio = () => {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
+      ([entry]) => { if (entry.isIntersecting) setIsVisible(true); },
       { threshold: 0.1 }
     );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
+    if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
 
   const GithubCard = () => (
-    <a
-      href="https://github.com/saadnaveeddev"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="group card-glow p-6 flex flex-col items-center justify-center text-center gap-4 cursor-pointer transition-all duration-300 ease-out min-h-[300px] hover:border-accent/50"
-    >
+    <a href="https://github.com/saadnaveeddev" target="_blank" rel="noopener noreferrer" className="group card-glow p-6 flex flex-col items-center justify-center text-center gap-4 cursor-pointer transition-all duration-300 ease-out min-h-[300px] hover:border-accent/50">
       <div className="w-16 h-16 rounded-full bg-secondary flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="w-8 h-8 text-foreground group-hover:text-accent transition-colors"
-        >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8 text-foreground group-hover:text-accent transition-colors">
           <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
         </svg>
       </div>
       <div>
-        <h3 className="text-xl font-semibold text-foreground mb-2 group-hover:text-accent transition-colors">
-          View More Projects
-        </h3>
-        <p className="text-muted-foreground text-sm">
-          Explore my open source work and contributions on GitHub.
-        </p>
+        <h3 className="text-xl font-semibold text-foreground mb-2 group-hover:text-accent transition-colors">View More Projects</h3>
+        <p className="text-muted-foreground text-sm">Explore my open source work and contributions on GitHub.</p>
       </div>
-      <span className="text-accent text-sm font-medium group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
-        Visit GitHub →
-      </span>
+      <span className="text-accent text-sm font-medium group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">Visit GitHub →</span>
     </a>
   );
 
   const ProjectCard = ({ project, index }: { project: Project; index: number }) => (
-    <article
-      onClick={() => setSelectedProject(project)}
-      className="group card-glow p-0 overflow-hidden cursor-pointer transition-all duration-300 ease-out hover:translate-y-[-4px]"
-      aria-label={`${project.title} - Click to view details`}
-    >
-      {/* Project image */}
+    <article onClick={() => setSelectedProject(project)} className="group card-glow p-0 overflow-hidden cursor-pointer transition-all duration-300 ease-out hover:translate-y-[-4px]" aria-label={`${project.title} - Click to view details`}>
       <div className="relative overflow-hidden aspect-[4/3]">
-        <img
-          src={project.image.startsWith('http') ? project.image : `https://www.saadnaveeddev.com${project.image}`}
-          alt={`Saad Naveed Full Stack Developer AI Engineer project: ${project.title}`}
-          title={`Saad Naveed Portfolio Project - ${project.title}`}
-          loading={index < 3 ? "eager" : "lazy"}
-          className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
-        />
+        <img src={project.image.startsWith('http') ? project.image : `https://www.saadnaveeddev.com${project.image}`} alt={`Saad Naveed Full Stack Developer AI Engineer project: ${project.title}`} title={`Saad Naveed Portfolio Project - ${project.title}`} loading={index < 3 ? "eager" : "lazy"} className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110" />
         <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out flex items-end p-4" aria-hidden="true">
           <span className="text-foreground text-sm font-medium">View Details →</span>
         </div>
       </div>
-
-      {/* Project info */}
       <div className="p-6">
-        <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-accent transition-colors duration-300 ease-out">
-          {project.title}
-        </h3>
-        <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
-          {project.description}
-        </p>
-
-        {/* Tags */}
+        <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-accent transition-colors duration-300 ease-out">{project.title}</h3>
+        <p className="text-muted-foreground text-sm mb-4 line-clamp-2">{project.description}</p>
         <div className="flex flex-wrap gap-2" role="list" aria-label="Technologies used">
-          {project.tags.slice(0, 3).map((tag) => (
-            <span key={tag} className="tech-tag" role="listitem">
-              {tag}
-            </span>
-          ))}
-          {project.tags.length > 3 && (
-            <span className="tech-tag" role="listitem">+{project.tags.length - 3}</span>
-          )}
+          {project.tags.slice(0, 3).map((tag) => (<span key={tag} className="tech-tag" role="listitem">{tag}</span>))}
+          {project.tags.length > 3 && (<span className="tech-tag" role="listitem">+{project.tags.length - 3}</span>)}
         </div>
       </div>
     </article>
@@ -550,12 +482,12 @@ const Portfolio = () => {
     <>
       <section id="portfolio" ref={sectionRef} aria-labelledby="portfolio-heading">
         <div className="section-container">
-          <div className="text-center max-w-2xl mx-auto mb-16">
+          <div className={`text-center max-w-2xl mx-auto mb-16 transition-all duration-700 ease-out ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
             <span className="section-title">Selected Work</span>
             <h2 id="portfolio-heading" className="section-heading">
               Work That
               <br />
-              <span className="text-accent">Make Impact</span>
+              <span className="text-accent">Makes Impact</span>
             </h2>
           </div>
 
@@ -627,40 +559,21 @@ const Portfolio = () => {
             </div>
           ) : (
             <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
-              <button
-                onClick={() => setCategory(null)}
-                className="group flex items-center gap-2 text-muted-foreground hover:text-accent mb-8 transition-colors"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="group-hover:-translate-x-1 transition-transform"
-                >
-                  <path d="m12 19-7-7 7-7" />
-                  <path d="M19 12H5" />
+              <button onClick={() => setCategory(null)} className="group flex items-center gap-2 text-muted-foreground hover:text-accent mb-8 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:-translate-x-1 transition-transform">
+                  <path d="m12 19-7-7 7-7" /><path d="M19 12H5" />
                 </svg>
                 Back to Categories
               </button>
 
               {category === 'web' ? (
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-                  {webProjects.map((project, index) => (
-                    <ProjectCard key={project.title} project={project} index={index} />
-                  ))}
+                  {webProjects.map((project, index) => (<ProjectCard key={project.title} project={project} index={index} />))}
                   <GithubCard />
                 </div>
               ) : category === 'ai' ? (
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-                  {aiProjects.map((project, index) => (
-                    <ProjectCard key={project.title} project={project} index={index} />
-                  ))}
+                  {aiProjects.map((project, index) => (<ProjectCard key={project.title} project={project} index={index} />))}
                   <GithubCard />
                 </div>
               ) : (
@@ -676,11 +589,7 @@ const Portfolio = () => {
         </div>
       </section>
 
-      <ProjectModal
-        project={selectedProject}
-        isOpen={selectedProject !== null}
-        onClose={() => setSelectedProject(null)}
-      />
+      <ProjectModal project={selectedProject} isOpen={selectedProject !== null} onClose={() => setSelectedProject(null)} />
     </>
   );
 };
