@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, useCallback } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ExternalLink, Calendar, Award, ArrowUpRight } from "lucide-react";
 import ProjectModal, { Project } from "./ProjectModal";
 
@@ -172,337 +172,154 @@ interface Publication {
 
 const publications: Publication[] = [
   {
-    title: "Enhancing Automotive Sales Performance and Customer Satisfaction Using Data Analytics and Machine Learning",
+    title:
+      "Enhancing Automotive Sales Performance and Customer Satisfaction Using Data Analytics and Machine Learning",
     journal: "Zenodo",
     year: "2025",
     link: "https://zenodo.org/records/19547147",
-    abstract: "A systematic, data-driven framework for improving sales performance and customer satisfaction in automotive dealerships through exploratory data analysis, income-based customer segmentation, and predictive ML modelling. Random Forest achieved the best predictive accuracy across all baselines.",
+    abstract:
+      "A systematic, data-driven framework for improving sales performance and customer satisfaction in automotive dealerships through exploratory data analysis, income-based customer segmentation, and predictive ML modelling. Random Forest achieved the best predictive accuracy across all baselines.",
     tags: ["Machine Learning", "Random Forest", "Python", "scikit-learn", "EDA"],
     highlight: "Random Forest achieved the best predictive accuracy",
     gradient: "from-teal-500/20 to-cyan-500/20",
   },
   // ── Add future publications here ──
+  // {
+  //   title: "Your Next Paper Title",
+  //   journal: "Conference / Journal Name",
+  //   year: "2026",
+  //   link: "https://...",
+  //   abstract: "Short abstract...",
+  //   tags: ["Tag1", "Tag2"],
+  //   highlight: "key phrase to accent",
+  //   gradient: "from-violet-500/20 to-purple-500/20",
+  // },
 ];
 
 /* ═══════════════════════════════════════════════════════════════════
-   PARTICLE NETWORK BACKGROUND  (canvas-based, section-local)
+   THEMED SVG ILLUSTRATIONS
    ═══════════════════════════════════════════════════════════════════ */
 
-const ParticleNetwork = () => {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-
-    let animId: number;
-    let particles: { x: number; y: number; vx: number; vy: number; r: number; alpha: number }[] = [];
-
-    const resize = () => {
-      canvas.width = canvas.offsetWidth * window.devicePixelRatio;
-      canvas.height = canvas.offsetHeight * window.devicePixelRatio;
-      ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
-    };
-
-    const init = () => {
-      resize();
-      const w = canvas.offsetWidth;
-      const h = canvas.offsetHeight;
-      const count = Math.min(Math.floor((w * h) / 12000), 80);
-      particles = Array.from({ length: count }, () => ({
-        x: Math.random() * w,
-        y: Math.random() * h,
-        vx: (Math.random() - 0.5) * 0.3,
-        vy: (Math.random() - 0.5) * 0.3,
-        r: Math.random() * 1.5 + 0.5,
-        alpha: Math.random() * 0.5 + 0.2,
-      }));
-    };
-
-    const draw = () => {
-      const w = canvas.offsetWidth;
-      const h = canvas.offsetHeight;
-      ctx.clearRect(0, 0, w, h);
-
-      // Draw connections
-      for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-          const dx = particles[i].x - particles[j].x;
-          const dy = particles[i].y - particles[j].y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 120) {
-            ctx.beginPath();
-            ctx.moveTo(particles[i].x, particles[i].y);
-            ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = `rgba(56, 189, 195, ${0.08 * (1 - dist / 120)})`;
-            ctx.lineWidth = 0.5;
-            ctx.stroke();
-          }
-        }
-      }
-
-      // Draw particles
-      for (const p of particles) {
-        p.x += p.vx;
-        p.y += p.vy;
-        if (p.x < 0 || p.x > w) p.vx *= -1;
-        if (p.y < 0 || p.y > h) p.vy *= -1;
-
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(56, 189, 195, ${p.alpha})`;
-        ctx.fill();
-      }
-
-      animId = requestAnimationFrame(draw);
-    };
-
-    init();
-    draw();
-    window.addEventListener("resize", init);
-
-    return () => {
-      cancelAnimationFrame(animId);
-      window.removeEventListener("resize", init);
-    };
-  }, []);
-
-  return (
-    <canvas
-      ref={canvasRef}
-      className="absolute inset-0 w-full h-full pointer-events-none"
-      style={{ opacity: 0.6 }}
-      aria-hidden="true"
-    />
-  );
-};
-
-/* ═══════════════════════════════════════════════════════════════════
-   FUTURISTIC 3D FLOATING OBJECTS (SVG illustrations)
-   ═══════════════════════════════════════════════════════════════════ */
-
-/** Digital Globe / Sphere — Web Development */
-const GlobeIllustration = () => (
-  <svg viewBox="0 0 160 160" fill="none" className="w-full h-full" aria-hidden="true">
-    <defs>
-      <radialGradient id="globeGlow" cx="50%" cy="50%" r="50%">
-        <stop offset="0%" stopColor="hsl(185 45% 45%)" stopOpacity="0.15" />
-        <stop offset="100%" stopColor="hsl(185 45% 45%)" stopOpacity="0" />
-      </radialGradient>
-      <linearGradient id="globeStroke" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0%" stopColor="hsl(185 60% 55%)" />
-        <stop offset="100%" stopColor="hsl(200 50% 40%)" />
-      </linearGradient>
-    </defs>
-    {/* Outer glow */}
-    <circle cx="80" cy="80" r="72" fill="url(#globeGlow)" />
-    {/* Main sphere outline */}
-    <circle cx="80" cy="80" r="52" stroke="url(#globeStroke)" strokeWidth="1.5" opacity="0.6" />
-    {/* Latitude lines */}
-    <ellipse cx="80" cy="80" rx="52" ry="18" stroke="hsl(185 45% 45%)" strokeWidth="0.8" opacity="0.3" />
-    <ellipse cx="80" cy="80" rx="52" ry="36" stroke="hsl(185 45% 45%)" strokeWidth="0.8" opacity="0.25" />
-    {/* Longitude lines */}
-    <ellipse cx="80" cy="80" rx="18" ry="52" stroke="hsl(185 45% 45%)" strokeWidth="0.8" opacity="0.3" />
-    <ellipse cx="80" cy="80" rx="36" ry="52" stroke="hsl(185 45% 45%)" strokeWidth="0.8" opacity="0.25" />
-    {/* Network nodes */}
-    {[[55,50],[105,60],[70,105],[95,42],[62,70],[100,90],[80,35],[45,85]].map(([x,y], i) => (
-      <g key={i}>
-        <circle cx={x} cy={y} r="3" fill="hsl(185 55% 55%)" opacity="0.8">
-          <animate attributeName="opacity" values="0.8;0.3;0.8" dur={`${2+i*0.4}s`} repeatCount="indefinite" />
-        </circle>
-        <circle cx={x} cy={y} r="6" stroke="hsl(185 45% 45%)" strokeWidth="0.5" opacity="0.3" fill="none">
-          <animate attributeName="r" values="6;9;6" dur={`${2+i*0.4}s`} repeatCount="indefinite" />
-          <animate attributeName="opacity" values="0.3;0;0.3" dur={`${2+i*0.4}s`} repeatCount="indefinite" />
-        </circle>
-      </g>
-    ))}
-    {/* Connection lines between nodes */}
-    <line x1="55" y1="50" x2="95" y2="42" stroke="hsl(185 45% 45%)" strokeWidth="0.6" opacity="0.25" />
-    <line x1="105" y1="60" x2="100" y2="90" stroke="hsl(185 45% 45%)" strokeWidth="0.6" opacity="0.25" />
-    <line x1="62" y1="70" x2="70" y2="105" stroke="hsl(185 45% 45%)" strokeWidth="0.6" opacity="0.25" />
-    <line x1="80" y1="35" x2="105" y2="60" stroke="hsl(185 45% 45%)" strokeWidth="0.6" opacity="0.2" />
-    <line x1="45" y1="85" x2="62" y2="70" stroke="hsl(185 45% 45%)" strokeWidth="0.6" opacity="0.2" />
-    <line x1="55" y1="50" x2="62" y2="70" stroke="hsl(185 45% 45%)" strokeWidth="0.6" opacity="0.2" />
-    {/* Orbiting ring */}
-    <ellipse cx="80" cy="80" rx="60" ry="14" stroke="hsl(185 45% 45%)" strokeWidth="0.6" opacity="0.2" strokeDasharray="4 6" transform="rotate(-20 80 80)">
-      <animateTransform attributeName="transform" type="rotate" from="-20 80 80" to="340 80 80" dur="40s" repeatCount="indefinite" />
-    </ellipse>
-    {/* Orbiting dot */}
-    <circle r="2.5" fill="hsl(185 55% 60%)" opacity="0.9">
-      <animateMotion dur="8s" repeatCount="indefinite">
-        <mpath xlinkHref="#orbitPath" />
-      </animateMotion>
-    </circle>
-    <ellipse id="orbitPath" cx="80" cy="80" rx="58" ry="20" fill="none" transform="rotate(-20 80 80)" />
+/** Browser window shape — Web Development */
+const WebBrowserIllustration = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 120 100" fill="none" className={className} aria-hidden="true">
+    {/* Browser window frame */}
+    <rect x="10" y="8" width="100" height="80" rx="8" stroke="currentColor" strokeWidth="2" fill="none" />
+    {/* Title bar */}
+    <line x1="10" y1="24" x2="110" y2="24" stroke="currentColor" strokeWidth="1.5" />
+    {/* Traffic light dots */}
+    <circle cx="22" cy="16" r="3" fill="hsl(185 45% 45%)" opacity="0.8" />
+    <circle cx="32" cy="16" r="3" fill="currentColor" opacity="0.3" />
+    <circle cx="42" cy="16" r="3" fill="currentColor" opacity="0.3" />
+    {/* URL bar */}
+    <rect x="50" y="12" width="54" height="8" rx="4" stroke="currentColor" strokeWidth="1" opacity="0.3" fill="none" />
+    {/* Code lines */}
+    <rect x="20" y="32" width="30" height="3" rx="1.5" fill="hsl(185 45% 45%)" opacity="0.6" />
+    <rect x="20" y="40" width="50" height="3" rx="1.5" fill="currentColor" opacity="0.2" />
+    <rect x="20" y="48" width="40" height="3" rx="1.5" fill="currentColor" opacity="0.15" />
+    <rect x="20" y="56" width="55" height="3" rx="1.5" fill="hsl(185 45% 45%)" opacity="0.35" />
+    <rect x="20" y="64" width="35" height="3" rx="1.5" fill="currentColor" opacity="0.2" />
+    {/* Sidebar panel */}
+    <rect x="78" y="32" width="24" height="38" rx="4" stroke="currentColor" strokeWidth="1" opacity="0.2" fill="none" />
+    <rect x="82" y="36" width="16" height="2" rx="1" fill="hsl(185 45% 45%)" opacity="0.4" />
+    <rect x="82" y="42" width="12" height="2" rx="1" fill="currentColor" opacity="0.15" />
+    <rect x="82" y="48" width="14" height="2" rx="1" fill="currentColor" opacity="0.15" />
+    {/* Cursor blinking line */}
+    <line x1="54" y1="39" x2="54" y2="45" stroke="hsl(185 45% 45%)" strokeWidth="1.5" opacity="0.7">
+      <animate attributeName="opacity" values="0.7;0.2;0.7" dur="1.2s" repeatCount="indefinite" />
+    </line>
   </svg>
 );
 
-/** Robot Head — Artificial Intelligence */
-const RobotHeadIllustration = () => (
-  <svg viewBox="0 0 160 160" fill="none" className="w-full h-full" aria-hidden="true">
-    <defs>
-      <radialGradient id="robotGlow" cx="50%" cy="45%" r="50%">
-        <stop offset="0%" stopColor="hsl(185 45% 45%)" stopOpacity="0.12" />
-        <stop offset="100%" stopColor="hsl(185 45% 45%)" stopOpacity="0" />
-      </radialGradient>
-      <linearGradient id="visorGrad" x1="0" y1="0" x2="1" y2="0">
-        <stop offset="0%" stopColor="hsl(185 60% 50%)" stopOpacity="0.3" />
-        <stop offset="50%" stopColor="hsl(185 60% 60%)" stopOpacity="0.5" />
-        <stop offset="100%" stopColor="hsl(185 60% 50%)" stopOpacity="0.3" />
-      </linearGradient>
-    </defs>
-    {/* Glow aura */}
-    <circle cx="80" cy="70" r="70" fill="url(#robotGlow)" />
+/** Robot / AI head shape — Artificial Intelligence */
+const RobotIllustration = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 120 110" fill="none" className={className} aria-hidden="true">
     {/* Antenna */}
-    <line x1="80" y1="8" x2="80" y2="28" stroke="hsl(185 45% 50%)" strokeWidth="1.5" opacity="0.6" />
-    <circle cx="80" cy="6" r="4" fill="hsl(185 55% 55%)" opacity="0.9">
-      <animate attributeName="opacity" values="0.9;0.3;0.9" dur="2s" repeatCount="indefinite" />
+    <line x1="60" y1="2" x2="60" y2="18" stroke="currentColor" strokeWidth="2" />
+    <circle cx="60" cy="2" r="4" fill="hsl(185 45% 45%)" opacity="0.8">
+      <animate attributeName="opacity" values="0.8;0.3;0.8" dur="2s" repeatCount="indefinite" />
     </circle>
-    <circle cx="80" cy="6" r="7" stroke="hsl(185 45% 45%)" strokeWidth="0.5" opacity="0.3" fill="none">
-      <animate attributeName="r" values="7;11;7" dur="2s" repeatCount="indefinite" />
-      <animate attributeName="opacity" values="0.3;0;0.3" dur="2s" repeatCount="indefinite" />
-    </circle>
-    {/* Head frame */}
-    <rect x="38" y="28" width="84" height="68" rx="16" stroke="hsl(185 45% 50%)" strokeWidth="1.5" opacity="0.5" fill="hsl(185 45% 45% / 0.03)" />
-    {/* Inner head panel */}
-    <rect x="46" y="36" width="68" height="52" rx="10" stroke="hsl(185 45% 45%)" strokeWidth="0.8" opacity="0.2" fill="none" />
-    {/* Visor / eye band */}
-    <rect x="48" y="48" width="64" height="20" rx="10" fill="url(#visorGrad)" stroke="hsl(185 55% 55%)" strokeWidth="1" opacity="0.7" />
-    {/* Left eye */}
-    <circle cx="64" cy="58" r="6" fill="hsl(185 60% 55%)" opacity="0.9">
-      <animate attributeName="opacity" values="0.9;0.5;0.9" dur="3s" repeatCount="indefinite" />
-    </circle>
-    <circle cx="64" cy="58" r="3" fill="hsl(185 80% 70%)" />
-    {/* Right eye */}
-    <circle cx="96" cy="58" r="6" fill="hsl(185 60% 55%)" opacity="0.9">
-      <animate attributeName="opacity" values="0.9;0.5;0.9" dur="3s" begin="0.3s" repeatCount="indefinite" />
-    </circle>
-    <circle cx="96" cy="58" r="3" fill="hsl(185 80% 70%)" />
-    {/* Scan line across visor */}
-    <rect x="50" y="56" width="12" height="1.5" rx="0.75" fill="hsl(185 70% 65%)" opacity="0.5">
-      <animate attributeName="x" values="50;100;50" dur="4s" repeatCount="indefinite" />
-      <animate attributeName="opacity" values="0.5;0.2;0.5" dur="4s" repeatCount="indefinite" />
+    {/* Head */}
+    <rect x="28" y="18" width="64" height="52" rx="12" stroke="currentColor" strokeWidth="2" fill="none" />
+    {/* Eyes */}
+    <rect x="40" y="34" width="14" height="14" rx="4" stroke="hsl(185 45% 45%)" strokeWidth="2" fill="hsl(185 45% 45% / 0.15)" />
+    <rect x="66" y="34" width="14" height="14" rx="4" stroke="hsl(185 45% 45%)" strokeWidth="2" fill="hsl(185 45% 45% / 0.15)" />
+    {/* Eye pupils / scan line */}
+    <rect x="44" y="39" width="6" height="4" rx="1" fill="hsl(185 45% 45%)" opacity="0.9">
+      <animate attributeName="x" values="44;46;44" dur="3s" repeatCount="indefinite" />
     </rect>
-    {/* Mouth / speaker */}
-    <rect x="62" y="76" width="36" height="8" rx="4" stroke="hsl(185 45% 45%)" strokeWidth="1" opacity="0.3" fill="none" />
-    <line x1="70" y1="77" x2="70" y2="83" stroke="hsl(185 45% 45%)" strokeWidth="0.8" opacity="0.25" />
-    <line x1="76" y1="77" x2="76" y2="83" stroke="hsl(185 45% 45%)" strokeWidth="0.8" opacity="0.25" />
-    <line x1="82" y1="77" x2="82" y2="83" stroke="hsl(185 45% 45%)" strokeWidth="0.8" opacity="0.25" />
-    <line x1="88" y1="77" x2="88" y2="83" stroke="hsl(185 45% 45%)" strokeWidth="0.8" opacity="0.25" />
-    {/* Ear panels */}
-    <rect x="26" y="46" width="12" height="24" rx="5" stroke="hsl(185 45% 45%)" strokeWidth="1" opacity="0.3" fill="hsl(185 45% 45% / 0.05)" />
-    <rect x="122" y="46" width="12" height="24" rx="5" stroke="hsl(185 45% 45%)" strokeWidth="1" opacity="0.3" fill="hsl(185 45% 45% / 0.05)" />
-    {/* Neck connector */}
-    <rect x="64" y="96" width="32" height="12" rx="4" stroke="hsl(185 45% 45%)" strokeWidth="1" opacity="0.25" fill="none" />
-    {/* Shoulders / body hint */}
-    <path d="M50 108 Q50 120 60 124 L100 124 Q110 120 110 108" stroke="hsl(185 45% 45%)" strokeWidth="1.2" opacity="0.2" fill="none" />
-    {/* Chest panel glow */}
-    <circle cx="80" cy="118" r="4" fill="hsl(185 55% 55%)" opacity="0.4">
-      <animate attributeName="opacity" values="0.4;0.8;0.4" dur="2.5s" repeatCount="indefinite" />
+    <rect x="70" y="39" width="6" height="4" rx="1" fill="hsl(185 45% 45%)" opacity="0.9">
+      <animate attributeName="x" values="70;72;70" dur="3s" repeatCount="indefinite" />
+    </rect>
+    {/* Mouth / speaker grille */}
+    <rect x="44" y="56" width="32" height="6" rx="3" stroke="currentColor" strokeWidth="1.5" opacity="0.4" fill="none" />
+    <line x1="50" y1="57" x2="50" y2="61" stroke="currentColor" strokeWidth="1" opacity="0.3" />
+    <line x1="56" y1="57" x2="56" y2="61" stroke="currentColor" strokeWidth="1" opacity="0.3" />
+    <line x1="62" y1="57" x2="62" y2="61" stroke="currentColor" strokeWidth="1" opacity="0.3" />
+    <line x1="68" y1="57" x2="68" y2="61" stroke="currentColor" strokeWidth="1" opacity="0.3" />
+    {/* Ears */}
+    <rect x="18" y="32" width="10" height="18" rx="4" stroke="currentColor" strokeWidth="1.5" opacity="0.4" fill="none" />
+    <rect x="92" y="32" width="10" height="18" rx="4" stroke="currentColor" strokeWidth="1.5" opacity="0.4" fill="none" />
+    {/* Neck */}
+    <rect x="50" y="70" width="20" height="8" rx="2" stroke="currentColor" strokeWidth="1.5" opacity="0.3" fill="none" />
+    {/* Body hint */}
+    <rect x="34" y="78" width="52" height="24" rx="8" stroke="currentColor" strokeWidth="2" fill="none" />
+    {/* Chest light */}
+    <circle cx="60" cy="90" r="5" fill="hsl(185 45% 45%)" opacity="0.3">
+      <animate attributeName="opacity" values="0.3;0.7;0.3" dur="2.5s" repeatCount="indefinite" />
     </circle>
-    {/* Holographic lines around head */}
-    <circle cx="80" cy="62" r="48" stroke="hsl(185 45% 45%)" strokeWidth="0.4" opacity="0.1" strokeDasharray="3 8" fill="none">
-      <animateTransform attributeName="transform" type="rotate" from="0 80 62" to="360 80 62" dur="30s" repeatCount="indefinite" />
-    </circle>
+    <circle cx="60" cy="90" r="2.5" fill="hsl(185 45% 45%)" opacity="0.7" />
+    {/* Circuit patterns on body */}
+    <line x1="42" y1="86" x2="52" y2="86" stroke="hsl(185 45% 45%)" strokeWidth="1" opacity="0.25" />
+    <line x1="68" y1="86" x2="78" y2="86" stroke="hsl(185 45% 45%)" strokeWidth="1" opacity="0.25" />
+    <line x1="42" y1="95" x2="52" y2="95" stroke="hsl(185 45% 45%)" strokeWidth="1" opacity="0.25" />
+    <line x1="68" y1="95" x2="78" y2="95" stroke="hsl(185 45% 45%)" strokeWidth="1" opacity="0.25" />
   </svg>
 );
 
-/** Open Book with Digital Pages — Research */
-const DigitalBookIllustration = () => (
-  <svg viewBox="0 0 160 140" fill="none" className="w-full h-full" aria-hidden="true">
-    <defs>
-      <radialGradient id="bookGlow" cx="50%" cy="55%" r="50%">
-        <stop offset="0%" stopColor="hsl(185 45% 45%)" stopOpacity="0.1" />
-        <stop offset="100%" stopColor="hsl(185 45% 45%)" stopOpacity="0" />
-      </radialGradient>
-      <linearGradient id="pageGrad" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stopColor="hsl(185 50% 50%)" stopOpacity="0.08" />
-        <stop offset="100%" stopColor="hsl(185 50% 50%)" stopOpacity="0.02" />
-      </linearGradient>
-    </defs>
-    {/* Glow */}
-    <ellipse cx="80" cy="75" rx="75" ry="60" fill="url(#bookGlow)" />
+/** Research paper / open book shape — Publications */
+const ResearchPaperIllustration = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 120 110" fill="none" className={className} aria-hidden="true">
     {/* Left page */}
-    <path d="M76 18 L76 110 Q55 102 16 108 L16 22 Q55 16 76 18Z" stroke="hsl(185 45% 50%)" strokeWidth="1.5" fill="url(#pageGrad)" opacity="0.6" />
+    <path d="M58 12 L58 95 Q40 88 14 92 L14 14 Q40 10 58 12Z" stroke="currentColor" strokeWidth="2" fill="none" />
     {/* Right page */}
-    <path d="M84 18 L84 110 Q105 102 144 108 L144 22 Q105 16 84 18Z" stroke="hsl(185 45% 50%)" strokeWidth="1.5" fill="url(#pageGrad)" opacity="0.6" />
-    {/* Spine highlight */}
-    <path d="M76 18 Q80 14 84 18" stroke="hsl(185 55% 55%)" strokeWidth="1.5" opacity="0.5" />
-    <path d="M76 110 Q80 114 84 110" stroke="hsl(185 55% 55%)" strokeWidth="1.5" opacity="0.5" />
-    <line x1="80" y1="16" x2="80" y2="112" stroke="hsl(185 45% 45%)" strokeWidth="0.6" opacity="0.15" />
-
-    {/* Left page: text lines */}
-    <rect x="24" y="30" width="40" height="2.5" rx="1" fill="hsl(185 55% 55%)" opacity="0.5" />
-    <rect x="24" y="38" width="34" height="2" rx="1" fill="hsl(0 0% 100%)" opacity="0.12" />
-    <rect x="24" y="44" width="38" height="2" rx="1" fill="hsl(0 0% 100%)" opacity="0.1" />
-    <rect x="24" y="50" width="30" height="2" rx="1" fill="hsl(0 0% 100%)" opacity="0.12" />
-    <rect x="24" y="56" width="36" height="2" rx="1" fill="hsl(0 0% 100%)" opacity="0.09" />
-
-    {/* Left page: data chart */}
-    <rect x="24" y="64" width="40" height="26" rx="4" stroke="hsl(185 45% 45%)" strokeWidth="0.8" opacity="0.25" fill="hsl(185 45% 45% / 0.04)" />
-    {/* Bar chart inside */}
-    <rect x="28" y="78" width="5" height="8" rx="1" fill="hsl(185 55% 55%)" opacity="0.4" />
-    <rect x="35" y="74" width="5" height="12" rx="1" fill="hsl(185 55% 55%)" opacity="0.55" />
-    <rect x="42" y="70" width="5" height="16" rx="1" fill="hsl(185 55% 55%)" opacity="0.7" />
-    <rect x="49" y="72" width="5" height="14" rx="1" fill="hsl(185 55% 55%)" opacity="0.6" />
-    <rect x="56" y="68" width="5" height="18" rx="1" fill="hsl(185 55% 55%)" opacity="0.8">
-      <animate attributeName="opacity" values="0.8;0.4;0.8" dur="3s" repeatCount="indefinite" />
-    </rect>
-
-    <rect x="24" y="96" width="40" height="2" rx="1" fill="hsl(0 0% 100%)" opacity="0.1" />
-    <rect x="24" y="102" width="32" height="2" rx="1" fill="hsl(0 0% 100%)" opacity="0.08" />
-
-    {/* Right page: code/formula lines */}
-    <rect x="92" y="30" width="40" height="2.5" rx="1" fill="hsl(185 55% 55%)" opacity="0.5" />
-    <rect x="92" y="38" width="34" height="2" rx="1" fill="hsl(0 0% 100%)" opacity="0.12" />
-    <rect x="92" y="44" width="38" height="2" rx="1" fill="hsl(0 0% 100%)" opacity="0.1" />
-    <rect x="92" y="50" width="28" height="2" rx="1" fill="hsl(0 0% 100%)" opacity="0.12" />
-    <rect x="92" y="56" width="36" height="2" rx="1" fill="hsl(0 0% 100%)" opacity="0.09" />
-    <rect x="92" y="62" width="32" height="2" rx="1" fill="hsl(0 0% 100%)" opacity="0.1" />
-    <rect x="92" y="68" width="38" height="2" rx="1" fill="hsl(0 0% 100%)" opacity="0.08" />
-    <rect x="92" y="74" width="24" height="2" rx="1" fill="hsl(0 0% 100%)" opacity="0.1" />
-    <rect x="92" y="80" width="34" height="2" rx="1" fill="hsl(0 0% 100%)" opacity="0.08" />
-    <rect x="92" y="86" width="40" height="2" rx="1" fill="hsl(0 0% 100%)" opacity="0.1" />
-    <rect x="92" y="92" width="28" height="2" rx="1" fill="hsl(0 0% 100%)" opacity="0.08" />
-    <rect x="92" y="98" width="36" height="2" rx="1" fill="hsl(0 0% 100%)" opacity="0.1" />
-    <rect x="92" y="104" width="30" height="2" rx="1" fill="hsl(0 0% 100%)" opacity="0.08" />
-
-    {/* Floating data particles rising from book */}
-    {[[40,12],[60,8],[100,10],[120,14],[80,6]].map(([x,y],i) => (
-      <circle key={i} cx={x} cy={y} r="1.5" fill="hsl(185 55% 55%)" opacity="0.5">
-        <animate attributeName="cy" values={`${y};${y-12};${y}`} dur={`${2.5+i*0.5}s`} repeatCount="indefinite" />
-        <animate attributeName="opacity" values="0.5;0;0.5" dur={`${2.5+i*0.5}s`} repeatCount="indefinite" />
-      </circle>
-    ))}
-
-    {/* Magnifying glass */}
-    <circle cx="130" cy="118" r="12" stroke="hsl(185 55% 55%)" strokeWidth="1.5" fill="hsl(185 45% 45% / 0.06)" opacity="0.6">
-      <animate attributeName="r" values="12;13;12" dur="3s" repeatCount="indefinite" />
+    <path d="M62 12 L62 95 Q80 88 106 92 L106 14 Q80 10 62 12Z" stroke="currentColor" strokeWidth="2" fill="none" />
+    {/* Spine */}
+    <path d="M58 12 Q60 10 62 12" stroke="currentColor" strokeWidth="1.5" />
+    <path d="M58 95 Q60 97 62 95" stroke="currentColor" strokeWidth="1.5" />
+    {/* Left page text lines */}
+    <rect x="22" y="24" width="28" height="2.5" rx="1" fill="hsl(185 45% 45%)" opacity="0.5" />
+    <rect x="22" y="32" width="24" height="2" rx="1" fill="currentColor" opacity="0.2" />
+    <rect x="22" y="38" width="28" height="2" rx="1" fill="currentColor" opacity="0.15" />
+    <rect x="22" y="44" width="20" height="2" rx="1" fill="currentColor" opacity="0.2" />
+    <rect x="22" y="50" width="26" height="2" rx="1" fill="currentColor" opacity="0.15" />
+    {/* Left page chart/figure */}
+    <rect x="22" y="58" width="28" height="18" rx="3" stroke="hsl(185 45% 45%)" strokeWidth="1" opacity="0.3" fill="hsl(185 45% 45% / 0.05)" />
+    <polyline points="25,72 30,66 35,68 40,62 45,65 48,60" stroke="hsl(185 45% 45%)" strokeWidth="1.5" opacity="0.6" fill="none" />
+    <rect x="22" y="80" width="28" height="2" rx="1" fill="currentColor" opacity="0.15" />
+    <rect x="22" y="85" width="22" height="2" rx="1" fill="currentColor" opacity="0.12" />
+    {/* Right page text lines */}
+    <rect x="70" y="24" width="28" height="2.5" rx="1" fill="hsl(185 45% 45%)" opacity="0.5" />
+    <rect x="70" y="32" width="24" height="2" rx="1" fill="currentColor" opacity="0.2" />
+    <rect x="70" y="38" width="28" height="2" rx="1" fill="currentColor" opacity="0.15" />
+    <rect x="70" y="44" width="20" height="2" rx="1" fill="currentColor" opacity="0.2" />
+    <rect x="70" y="50" width="26" height="2" rx="1" fill="currentColor" opacity="0.15" />
+    <rect x="70" y="56" width="22" height="2" rx="1" fill="currentColor" opacity="0.15" />
+    <rect x="70" y="62" width="28" height="2" rx="1" fill="currentColor" opacity="0.12" />
+    <rect x="70" y="68" width="18" height="2" rx="1" fill="currentColor" opacity="0.15" />
+    <rect x="70" y="74" width="24" height="2" rx="1" fill="currentColor" opacity="0.12" />
+    <rect x="70" y="80" width="28" height="2" rx="1" fill="currentColor" opacity="0.15" />
+    <rect x="70" y="86" width="20" height="2" rx="1" fill="currentColor" opacity="0.12" />
+    {/* Magnifying glass overlay */}
+    <circle cx="88" cy="96" r="10" stroke="hsl(185 45% 45%)" strokeWidth="2" fill="hsl(185 45% 45% / 0.08)">
+      <animate attributeName="r" values="10;11;10" dur="3s" repeatCount="indefinite" />
     </circle>
-    <line x1="139" y1="127" x2="150" y2="136" stroke="hsl(185 55% 55%)" strokeWidth="2.5" strokeLinecap="round" opacity="0.6" />
+    <line x1="95" y1="103" x2="104" y2="110" stroke="hsl(185 45% 45%)" strokeWidth="2.5" strokeLinecap="round" />
   </svg>
 );
 
 /* ═══════════════════════════════════════════════════════════════════
-   RIPPLE EFFECT HOOK
-   ═══════════════════════════════════════════════════════════════════ */
-
-const useRipple = () => {
-  const [ripple, setRipple] = useState<{ x: number; y: number; key: number } | null>(null);
-
-  const trigger = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    setRipple({ x: e.clientX - rect.left, y: e.clientY - rect.top, key: Date.now() });
-    setTimeout(() => setRipple(null), 600);
-  }, []);
-
-  return { ripple, trigger };
-};
-
-/* ═══════════════════════════════════════════════════════════════════
-   PUBLICATION CARD
+   PUBLICATION CARD  (rendered inside Portfolio when category=publications)
    ═══════════════════════════════════════════════════════════════════ */
 
 const HighlightedAbstract = ({ text, highlight }: { text: string; highlight: string }) => {
@@ -526,140 +343,87 @@ const PublicationCard = ({ pub, index }: { pub: Publication; index: number }) =>
       boxShadow: "0 4px 20px hsl(0 0% 0% / 0.3), inset 0 1px 0 hsl(0 0% 100% / 0.02)",
     }}
   >
-    <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style={{ boxShadow: "0 0 40px hsl(185 45% 45% / 0.08), inset 0 0 40px hsl(185 45% 45% / 0.03)" }} aria-hidden="true" />
-    <div className={`absolute -bottom-14 -right-14 w-40 h-40 rounded-full opacity-0 group-hover:opacity-30 blur-3xl pointer-events-none transition-opacity duration-500 bg-gradient-to-br ${pub.gradient}`} aria-hidden="true" />
+    {/* Hover glow */}
+    <div
+      className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+      style={{ boxShadow: "0 0 40px hsl(185 45% 45% / 0.08), inset 0 0 40px hsl(185 45% 45% / 0.03)" }}
+      aria-hidden="true"
+    />
+    {/* Gradient orb */}
+    <div
+      className={`absolute -bottom-14 -right-14 w-40 h-40 rounded-full opacity-0 group-hover:opacity-30 blur-3xl pointer-events-none transition-opacity duration-500 bg-gradient-to-br ${pub.gradient}`}
+      aria-hidden="true"
+    />
+    {/* Accent strip */}
     <div className="h-1 w-full bg-gradient-to-r from-accent/60 via-accent/30 to-transparent" aria-hidden="true" />
+
     <div className="relative p-7 md:p-8 flex flex-col flex-1">
+      {/* Header */}
       <div className="flex items-start justify-between gap-4 mb-5">
         <div className="icon-box shrink-0 group-hover:scale-110 transition-transform duration-300">
           <svg viewBox="0 0 24 24" className="w-5 h-5 text-accent" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
             <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
-            <path d="M8 7h6" /><path d="M8 11h8" />
+            <path d="M8 7h6" />
+            <path d="M8 11h8" />
           </svg>
         </div>
-        <a href={pub.link} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center text-accent border border-accent/20 hover:bg-accent hover:text-white hover:border-accent transition-all duration-300 shrink-0 group-hover:scale-105" aria-label={`Read paper: ${pub.title}`} id={`pub-link-${index}`}>
+        <a
+          href={pub.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center text-accent border border-accent/20 hover:bg-accent hover:text-white hover:border-accent transition-all duration-300 shrink-0 group-hover:scale-105"
+          aria-label={`Read paper: ${pub.title}`}
+          id={`pub-link-${index}`}
+        >
           <ExternalLink className="w-4 h-4" />
         </a>
       </div>
-      <h3 className="text-lg md:text-xl font-semibold text-foreground leading-snug mb-4 group-hover:text-accent/90 transition-colors duration-300">{pub.title}</h3>
+
+      {/* Title */}
+      <h3 className="text-lg md:text-xl font-semibold text-foreground leading-snug mb-4 group-hover:text-accent/90 transition-colors duration-300">
+        {pub.title}
+      </h3>
+
+      {/* Meta */}
       <div className="flex flex-wrap items-center gap-3 mb-5">
-        <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-accent border border-accent/20" style={{ background: "linear-gradient(135deg, hsl(185 45% 45% / 0.08) 0%, hsl(185 45% 45% / 0.02) 100%)" }}>
-          <Award className="w-3.5 h-3.5" aria-hidden="true" />{pub.journal}
+        <span
+          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-accent border border-accent/20"
+          style={{ background: "linear-gradient(135deg, hsl(185 45% 45% / 0.08) 0%, hsl(185 45% 45% / 0.02) 100%)" }}
+        >
+          <Award className="w-3.5 h-3.5" aria-hidden="true" />
+          {pub.journal}
         </span>
         <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium text-muted-foreground border border-border/30 bg-secondary/40">
-          <Calendar className="w-3.5 h-3.5" aria-hidden="true" />{pub.year}
+          <Calendar className="w-3.5 h-3.5" aria-hidden="true" />
+          {pub.year}
         </span>
       </div>
+
+      {/* Abstract */}
       <p className="text-foreground/80 leading-relaxed font-light text-[14px] md:text-[15px] mb-6 flex-1">
         "<HighlightedAbstract text={pub.abstract} highlight={pub.highlight} />"
       </p>
+
+      {/* Tags */}
       <div className="flex flex-wrap gap-2 mb-5" role="list" aria-label="Keywords">
-        {pub.tags.map((tag) => (<span key={tag} className="tech-tag" role="listitem">{tag}</span>))}
+        {pub.tags.map((tag) => (
+          <span key={tag} className="tech-tag" role="listitem">{tag}</span>
+        ))}
       </div>
-      <a href={pub.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-medium text-accent group-hover:translate-x-1 transition-transform duration-300 mt-auto w-fit">
-        Read Full Paper <ArrowUpRight className="w-4 h-4" />
+
+      {/* CTA */}
+      <a
+        href={pub.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center gap-2 text-sm font-medium text-accent group-hover:translate-x-1 transition-transform duration-300 mt-auto w-fit"
+      >
+        Read Full Paper
+        <ArrowUpRight className="w-4 h-4" />
       </a>
     </div>
   </article>
 );
-
-/* ═══════════════════════════════════════════════════════════════════
-   FUTURISTIC CATEGORY TILE
-   ═══════════════════════════════════════════════════════════════════ */
-
-interface CategoryTileProps {
-  onClick: () => void;
-  illustration: React.ReactNode;
-  title: string;
-  description: string;
-  cta: string;
-  delay: number;
-  isVisible: boolean;
-}
-
-const CategoryTile = ({ onClick, illustration, title, description, cta, delay, isVisible }: CategoryTileProps) => {
-  const { ripple, trigger } = useRipple();
-
-  return (
-    <div
-      onClick={(e) => { trigger(e); setTimeout(onClick, 200); }}
-      className={`group relative cursor-pointer transition-all duration-700 ease-out ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-16"}`}
-      style={{ transitionDelay: `${delay}ms` }}
-    >
-      {/* Glassmorphism + neumorphism card */}
-      <div
-        className="relative rounded-3xl p-1 overflow-hidden transition-all duration-500 group-hover:scale-[1.03]"
-        style={{
-          background: "linear-gradient(135deg, hsl(185 45% 45% / 0.15) 0%, hsl(185 45% 45% / 0.03) 50%, hsl(185 45% 45% / 0.1) 100%)",
-        }}
-      >
-        <div
-          className="relative rounded-[22px] p-6 md:p-8 flex flex-col items-center text-center overflow-hidden"
-          style={{
-            background: "linear-gradient(160deg, hsl(0 0% 7% / 0.9) 0%, hsl(0 0% 4% / 0.95) 100%)",
-            backdropFilter: "blur(20px)",
-            boxShadow: "inset 0 1px 0 hsl(0 0% 100% / 0.04), inset 0 -1px 0 hsl(0 0% 0% / 0.2), 0 8px 32px hsl(0 0% 0% / 0.4), 0 2px 8px hsl(0 0% 0% / 0.2)",
-          }}
-        >
-          {/* Ripple effect */}
-          {ripple && (
-            <span
-              key={ripple.key}
-              className="absolute rounded-full animate-ping pointer-events-none"
-              style={{
-                left: ripple.x - 20,
-                top: ripple.y - 20,
-                width: 40,
-                height: 40,
-                background: "radial-gradient(circle, hsl(185 45% 45% / 0.3) 0%, transparent 70%)",
-              }}
-            />
-          )}
-
-          {/* Hover glow */}
-          <div
-            className="absolute inset-0 rounded-[22px] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
-            style={{ boxShadow: "inset 0 0 60px hsl(185 45% 45% / 0.06), 0 0 60px hsl(185 45% 45% / 0.08)" }}
-            aria-hidden="true"
-          />
-
-          {/* Bottom gradient orb */}
-          <div
-            className="absolute -bottom-16 left-1/2 -translate-x-1/2 w-48 h-48 rounded-full opacity-0 group-hover:opacity-20 blur-3xl pointer-events-none transition-all duration-700 bg-gradient-to-t from-cyan-500/40 to-teal-500/20"
-            aria-hidden="true"
-          />
-
-          {/* Floating 3D illustration */}
-          <div className="relative w-32 h-32 md:w-36 md:h-36 mb-6 transition-transform duration-[2000ms] ease-in-out" style={{ animation: "floatObj 5s ease-in-out infinite" }}>
-            {illustration}
-          </div>
-
-          {/* Title */}
-          <h3 className="text-xl md:text-2xl font-bold text-foreground mb-3 group-hover:text-accent transition-colors duration-300 relative z-10">
-            {title}
-          </h3>
-
-          {/* Description */}
-          <p className="text-muted-foreground text-sm leading-relaxed mb-5 max-w-[240px] relative z-10">
-            {description}
-          </p>
-
-          {/* CTA */}
-          <span className="relative z-10 inline-flex items-center gap-2 text-accent text-sm font-medium group-hover:translate-x-1 transition-transform duration-300">
-            {cta}
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
-            </svg>
-          </span>
-
-          {/* Corner accent lines */}
-          <div className="absolute top-3 left-3 w-6 h-6 border-t border-l border-accent/20 rounded-tl-lg pointer-events-none" aria-hidden="true" />
-          <div className="absolute bottom-3 right-3 w-6 h-6 border-b border-r border-accent/20 rounded-br-lg pointer-events-none" aria-hidden="true" />
-        </div>
-      </div>
-    </div>
-  );
-};
 
 /* ═══════════════════════════════════════════════════════════════════
    PORTFOLIO COMPONENT
@@ -728,42 +492,70 @@ const Portfolio = () => {
           </div>
 
           {!category ? (
-            /* ─── Futuristic Category Selection ─── */
-            <div className="relative">
-              {/* Particle network background */}
-              <div className="absolute -inset-12 -z-10 rounded-3xl overflow-hidden" aria-hidden="true">
-                <ParticleNetwork />
+            /* ─── Category Selection — 3 themed tiles ─── */
+            <div className={`grid md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto transition-all duration-700 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+
+              {/* ── Web Development — Browser shape ── */}
+              <div
+                onClick={() => setCategory('web')}
+                className="group card-glow p-8 rounded-2xl cursor-pointer hover:border-accent/50 transition-all duration-300 flex flex-col items-center text-center gap-5 min-h-[320px] justify-center relative overflow-hidden"
+              >
+                {/* Gradient orb on hover */}
+                <div className="absolute -bottom-10 -right-10 w-32 h-32 rounded-full opacity-0 group-hover:opacity-25 blur-2xl pointer-events-none transition-opacity duration-500 bg-gradient-to-br from-cyan-500/30 to-teal-500/30" aria-hidden="true" />
+                <div className="w-28 h-24 text-foreground group-hover:text-accent transition-all duration-500 group-hover:scale-110 relative">
+                  <WebBrowserIllustration className="w-full h-full" />
+                </div>
+                <div>
+                  <h3 className="text-xl md:text-2xl font-bold text-foreground mb-3 group-hover:text-accent transition-colors">Web Development</h3>
+                  <p className="text-muted-foreground text-sm">
+                    Modern web applications built with React, Next.js, and cutting-edge technologies.
+                  </p>
+                </div>
+                <span className="text-accent font-medium group-hover:translate-x-1 transition-transform inline-flex items-center gap-2 mt-auto">
+                  View Projects →
+                </span>
               </div>
 
-              <div className="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto py-4">
-                <CategoryTile
-                  onClick={() => setCategory('web')}
-                  illustration={<GlobeIllustration />}
-                  title="Web Development"
-                  description="Modern web applications built with React, Next.js, and cutting-edge technologies."
-                  cta="View Projects"
-                  delay={0}
-                  isVisible={isVisible}
-                />
-                <CategoryTile
-                  onClick={() => setCategory('ai')}
-                  illustration={<RobotHeadIllustration />}
-                  title="Artificial Intelligence"
-                  description="Machine learning models, neural networks, and AI-powered solutions."
-                  cta="View Projects"
-                  delay={150}
-                  isVisible={isVisible}
-                />
-                <CategoryTile
-                  onClick={() => setCategory('publications')}
-                  illustration={<DigitalBookIllustration />}
-                  title="Research & Publications"
-                  description="Academic papers in data science, ML, and applied AI research."
-                  cta="View Papers"
-                  delay={300}
-                  isVisible={isVisible}
-                />
+              {/* ── AI — Robot shape ── */}
+              <div
+                onClick={() => setCategory('ai')}
+                className="group card-glow p-8 rounded-2xl cursor-pointer hover:border-accent/50 transition-all duration-300 flex flex-col items-center text-center gap-5 min-h-[320px] justify-center relative overflow-hidden"
+              >
+                <div className="absolute -bottom-10 -left-10 w-32 h-32 rounded-full opacity-0 group-hover:opacity-25 blur-2xl pointer-events-none transition-opacity duration-500 bg-gradient-to-br from-violet-500/30 to-purple-500/30" aria-hidden="true" />
+                <div className="w-24 h-24 text-foreground group-hover:text-accent transition-all duration-500 group-hover:scale-110 relative">
+                  <RobotIllustration className="w-full h-full" />
+                </div>
+                <div>
+                  <h3 className="text-xl md:text-2xl font-bold text-foreground mb-3 group-hover:text-accent transition-colors">Artificial Intelligence</h3>
+                  <p className="text-muted-foreground text-sm">
+                    Machine learning models, neural networks, and AI-powered solutions.
+                  </p>
+                </div>
+                <span className="text-accent font-medium group-hover:translate-x-1 transition-transform inline-flex items-center gap-2 mt-auto">
+                  View Projects →
+                </span>
               </div>
+
+              {/* ── Publications — Paper / book shape ── */}
+              <div
+                onClick={() => setCategory('publications')}
+                className="group card-glow p-8 rounded-2xl cursor-pointer hover:border-accent/50 transition-all duration-300 flex flex-col items-center text-center gap-5 min-h-[320px] justify-center relative overflow-hidden"
+              >
+                <div className="absolute -bottom-10 -right-10 w-32 h-32 rounded-full opacity-0 group-hover:opacity-25 blur-2xl pointer-events-none transition-opacity duration-500 bg-gradient-to-br from-amber-500/30 to-orange-500/30" aria-hidden="true" />
+                <div className="w-24 h-24 text-foreground group-hover:text-accent transition-all duration-500 group-hover:scale-110 relative">
+                  <ResearchPaperIllustration className="w-full h-full" />
+                </div>
+                <div>
+                  <h3 className="text-xl md:text-2xl font-bold text-foreground mb-3 group-hover:text-accent transition-colors">Research & Publications</h3>
+                  <p className="text-muted-foreground text-sm">
+                    Academic papers in data science, ML, and applied AI research.
+                  </p>
+                </div>
+                <span className="text-accent font-medium group-hover:translate-x-1 transition-transform inline-flex items-center gap-2 mt-auto">
+                  View Papers →
+                </span>
+              </div>
+
             </div>
           ) : (
             <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
@@ -785,8 +577,11 @@ const Portfolio = () => {
                   <GithubCard />
                 </div>
               ) : (
+                /* ── Publications sub-view ── */
                 <div className="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto">
-                  {publications.map((pub, index) => (<PublicationCard key={pub.title} pub={pub} index={index} />))}
+                  {publications.map((pub, index) => (
+                    <PublicationCard key={pub.title} pub={pub} index={index} />
+                  ))}
                 </div>
               )}
             </div>
