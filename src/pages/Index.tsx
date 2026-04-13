@@ -5,7 +5,6 @@ import AnimatedBackground from "@/components/AnimatedBackground";
 
 // Lazy load below-the-fold components for better performance SEO (Lighthouse score)
 const About = React.lazy(() => import("@/components/About"));
-const Services = React.lazy(() => import("@/components/Services"));
 const Portfolio = React.lazy(() => import("@/components/Portfolio"));
 const Testimonials = React.lazy(() => import("@/components/Testimonials"));
 const SEOContent = React.lazy(() => import("@/components/SEOContent"));
@@ -26,7 +25,6 @@ const Index = () => {
       {/* Lazy loaded content sections */}
       <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading content...</div>}>
         <About />
-        <Services />
         <Portfolio />
         <Testimonials />
         <SEOContent />
